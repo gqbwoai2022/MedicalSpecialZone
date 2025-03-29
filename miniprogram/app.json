@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/appointment/index",
+    "pages/me/index"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "assets/home.png",
+        "selectedIconPath": "assets/homeSelect.png"
+      },
+      {
+        "pagePath": "pages/appointment/index",
+        "text": "预约",
+        "iconPath": "assets/appointment.png",
+        "selectedIconPath": "assets/appointmentSelect.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "我的",
+        "iconPath": "assets/me.png",
+        "selectedIconPath": "assets/meSelect.png"
+      }
+    ],
+    "selectedColor": "#1296db",
+    "backgroundColor": "#FFFFFF",
+    "position": "bottom"
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": false
+  },
+  "lazyCodeLoading": "requiredComponents"
+}
