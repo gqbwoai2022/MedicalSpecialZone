@@ -1,9 +1,5 @@
 {
-  "pages": [
-    "pages/home/index",
-    "pages/appointment/index",
-    "pages/me/index"
-  ],
+  "pages": ["pages/home/index", "pages/appointment/index", "pages/me/index"],
   "tabBar": {
     "list": [
       {
