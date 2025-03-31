@@ -27,4 +27,61 @@
       <image src="/assets/appointment.png" mode="aspectFill" />
     </swiper-item>
   </swiper>
+  <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
+    <swiper-item>
+      <image src="/assets/home.png" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image src="/assets/me.png" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image src="/assets/appointment.png" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <view class="card">
+    <view class="cardTitle">重点发展领域</view>
+    <view class="importantContent">
+      <view class="item">
+        <image src="/assets/home.png" class='pic' />
+        <view class="text">康养康复</view>
+      </view>
+      <view class="item">
+        <image src="/assets/home.png" class='pic' />
+        <view class="text">健康管理</view>
+      </view>
+      <view class="item">
+        <image src="/assets/home.png" class='pic' />
+        <view class="text">特许医疗</view>
+      </view>
+      <view class="item">
+        <image src="/assets/home.png" class='pic' />
+        <view class="text">药械技术</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="cardTitleWithMore">
+      <view class="title">服务医院</view>
+      <view class="moreBtn">更多</view>
+    </view>
+    <View class="serviceContainer">123</View>
+  </view>
+
+  <view class="card">
+    <view class="cardTitleWithMore">
+      <view class="title">院士专家</view>
+      <view class="moreBtn">更多</view>
+    </view>
+    <View class="serviceContainer">123</View>
+  </view>
+
+  <view class="card">
+    <view class="cardTitleWithMore">
+      <view class="title">先进技术</view>
+      <view class="moreBtn">更多</view>
+    </view>
+    <View class="serviceContainer">123</View>
+  </view>
 </scroll-view>
