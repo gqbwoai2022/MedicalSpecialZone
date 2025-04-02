@@ -3,7 +3,7 @@ page {
   display: flex;
   flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 20px;
+  font-size: 32rpx;
 }
 
 .scrollarea {
@@ -13,9 +13,14 @@ page {
   overflow-y: hidden;
   padding: 6px 14px;
 
-  .video {
-    height: 120px;
-    background: red;
+  .videoContainer {
+    height: 420rpx;
+    background-color: #000;
+
+    .video-player {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .firstText {
@@ -32,7 +37,15 @@ page {
   }
 
   .swiperContainer {
+    width: 100%;
+    height: 240px;
     margin-bottom: 10px;
+
+    .swiperItemPic {
+      width: 100%;
+      height: 100;
+      background-size: cover;
+    }
   }
 
   .card {
@@ -43,7 +56,7 @@ page {
     margin-bottom: 14px;
 
     .cardTitle {
-      font-size: 24px;
+      font-size: 36rpx;
       font-weight: 600;
       margin-bottom: 20px;
     }
@@ -64,27 +77,38 @@ page {
         }
       }
     }
-    
+
     .cardTitleWithMore {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
+
       .title {
-        font-size: 24px;
-        font-weight: 600;;
+        font-size: 30rpx;
+        font-weight: 600;
+        ;
       }
 
       .moreBtn {
-        font-size: 20px;
+        font-size: 30rpx;
         color: gray;
       }
     }
 
     .serviceContainer {
       width: 100%;
-      height: 240px;
-      background: red;
+      display: flex;
+      justify-content: space-between;
+
+      .serviceContainerItem {
+        width: 33%;
+        .pic {
+          width: 100%;
+          height: 80px;
+          background-size: cover;
+        }
+      }
     }
   }
 }

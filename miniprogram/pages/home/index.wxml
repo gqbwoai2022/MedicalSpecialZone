@@ -1,6 +1,9 @@
-<navigation-bar title="" back="{{false}}" background="#FFF"></navigation-bar>
+<navigation-bar title="首页" back="{{false}}" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y>
-  <view class="video"></view>
+  <view class="videoContainer">
+    <video id="myVideo" src="{{videoUrl}}" controls="{{true}}" autoplay="{{true}}" loop="{{false}}" muted="{{false}}" poster="{{videoCover}}" bindplay="onVideoPlay" binderror="onVideoError" class="video-player">
+    </video>
+  </view>
   <view class="firstText">
     <view class="title">我司致力于为尊贵会员提供全面而高端的医疗康养资源对接服务，具体涵盖以下核心业务：</view>
     <view class="text">
@@ -18,24 +21,48 @@
   </view>
   <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
     <swiper-item>
-      <image src="/assets/home.png" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/lunbo1.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image src="/assets/me.png" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/lunbo2.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image src="/assets/appointment.png" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/lunbo3.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperItemPic" src="/assets/lunbo4.jpg" mode="aspectFill" />
     </swiper-item>
   </swiper>
   <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
     <swiper-item>
-      <image src="/assets/home.png" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/hospital1.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image src="/assets/me.png" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/hospital2.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image src="/assets/appointment.png" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/hospital3.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperItemPic" src="/assets/hospital4.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperItemPic" src="/assets/hospital5.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperItemPic" src="/assets/hospital6.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperItemPic" src="/assets/hospital7.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperItemPic" src="/assets/hospital8.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperItemPic" src="/assets/hospital9.jpg" mode="aspectFill" />
+    </swiper-item>
+    <swiper-item>
+      <image class="swiperItemPic" src="/assets/hospital10.jpg" mode="aspectFill" />
     </swiper-item>
   </swiper>
 
@@ -63,10 +90,23 @@
 
   <view class="card">
     <view class="cardTitleWithMore">
-      <view class="title">服务医院</view>
+      <view class="title">合作医院</view>
       <view class="moreBtn">更多</view>
     </view>
-    <View class="serviceContainer">123</View>
+    <View class="serviceContainer">
+      <view class="serviceContainerItem">
+        <image src="/assets/hospital1.jpg" mode="aspectFit" class='pic' />
+        <view>中国人民解放军总医院海南医院</view>
+      </view>
+      <view class="serviceContainerItem">
+        <image src="/assets/hospital2.jpg" mode="aspectFit" class='pic' />
+        <view>上海交通大学医学院附属瑞金医院海南医院</view>
+      </view>
+      <view class="serviceContainerItem">
+        <image src="/assets/hospital3.jpg" mode="aspectFit" class='pic' />
+        <view>四川大学华西乐城医院</view>
+      </view>
+    </View>
   </view>
 
   <view class="card">
@@ -74,7 +114,20 @@
       <view class="title">院士专家</view>
       <view class="moreBtn">更多</view>
     </view>
-    <View class="serviceContainer">123</View>
+    <View class="serviceContainer">
+      <view class="serviceContainerItem">
+        <image src="/assets/chenlin.jpg" mode="aspectFit" class='pic' />
+        <view>陈霖院士</view>
+      </view>
+      <view class="serviceContainerItem">
+        <image src="/assets/chenxiangmei.jpg" mode="aspectFit" class='pic' />
+        <view>陈香美院士</view>
+      </view>
+      <view class="serviceContainerItem">
+        <image src="/assets/dongjiahong.jpg" mode="aspectFit" class='pic' />
+        <view>董家鸿院士</view>
+      </view>
+    </View>
   </view>
 
   <view class="card">

@@ -1,1 +1,163 @@
-/* pages/appointment/index.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  background-color: #f5f5f5;
+}
+
+.appointMain {
+  .container {
+    padding: 20rpx;
+  }
+
+  .section, .extra {
+    background: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    width: calc(100% - 60rpx);
+    margin-bottom: 30rpx;
+  }
+
+  .title {
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+  }
+
+  /* 选项列表 */
+  .option-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100rpx;
+    border-bottom: 1rpx solid #eee;
+    font-size: 32rpx;
+  }
+
+  .option-item.active {
+    color: #07C160;
+    /* 选中项高亮 */
+  }
+
+  .placeholder {
+    color: #999;
+  }
+
+  /* 重新选择按钮 */
+  .reset-btn {
+    text-align: center;
+    margin-top: 40rpx;
+    color: #07C160;
+    font-size: 36rpx;
+    margin-bottom: 28rpx;
+  }
+
+  .attention {
+    margin-bottom: 56rpx;
+    .title {
+      font-size: 32rpx;
+      font-weight: bold;
+      margin-bottom: 12rpx;
+    }
+
+    .subTitle {
+      font-size: 32rpx;
+      color:rgba(0, 0, 0, 0.5);
+      margin-bottom: 12rpx;
+    }
+  }
+
+  .textarea {
+    width: calc(100% - 40rpx);
+    height: 200rpx; /* 固定高度 */
+    padding: 20rpx;
+    margin-top: 20rpx;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    color: #333;
+  }
+
+  .input-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100rpx;
+    font-size: 32rpx;
+  }
+  
+  /* 输入框/时间选择器样式 */
+  .input-item input,
+  .picker-placeholder {
+    flex: 1;
+    text-align: right;
+    color: #999;
+    margin-left: 20rpx;
+  }
+  
+  /* 时间选择器默认文字颜色 */
+  .picker-placeholder {
+    color: #999 !important;
+  }
+
+  /* 提交按钮 */
+  .submit-btn {
+    width: 95%;
+    padding: 20rpx 0;
+    background: #07C160;
+    color: #fff;
+    text-align: center;
+    border-radius: 40rpx;
+    font-size: 42rpx;
+  }
+
+  /* 弹窗样式 */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .modal-content {
+    background: #fff;
+    width: 94%;
+    border-radius: 16rpx;
+    overflow: hidden;
+  }
+
+  .modal-title {
+    text-align: center;
+    padding: 30rpx;
+    font-size: 34rpx;
+    font-weight: bold;
+  }
+
+  .option-scroll {
+    max-height: 500rpx;
+  }
+
+  .modal-option {
+    padding: 25rpx 30rpx;
+    border-bottom: 1rpx solid #eee;
+  }
+
+  .modal-option:active {
+    background: #f5f5f5;
+  }
+
+  .modal-close {
+    text-align: center;
+    padding: 25rpx;
+    color: #999;
+    border-top: 1rpx solid #eee;
+  }
+}

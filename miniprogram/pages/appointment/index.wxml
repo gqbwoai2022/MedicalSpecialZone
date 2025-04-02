@@ -1,1 +1,76 @@
-<text>123123</text>
+<navigation-bar title="预约" back="{{false}}" background="#FFF"></navigation-bar>
+<scroll-view class="appointMain" scroll-y>
+  <view class="container">
+    <view class="section">
+      <view class="title">预约信息</view>
+      <view class="option-list">
+        <view class="option-item {{selectedType === 'hospital' ? 'active' : ''}}" bindtap="handleSelectOption" data-type="hospital">
+          <text>服务医院</text>
+          <text class="placeholder">{{selectedHospital || '请选择 >'}}</text>
+        </view>
+        <view class="option-item {{selectedType === 'expert' ? 'active' : ''}}" bindtap="handleSelectOption" data-type="expert">
+          <text>院士专家</text>
+          <text class="placeholder">{{selectedExpert || '请选择 >'}}</text>
+        </view>
+        <view class="option-item {{selectedType === 'tech' ? 'active' : ''}}" bindtap="handleSelectOption" data-type="tech">
+          <text>先进技术</text>
+          <text class="placeholder">{{selectedTech || '请选择 >'}}</text>
+        </view>
+      </view>
+      <view class="reset-btn" bindtap="handleReset">重新选择</view>
+
+      <view class="attention">
+        <view class="title">注意事项：</view>
+        <view class="subTitle">此服务包含挂号业务</view>
+        <view class="subTitle">以上各选项类别只可选择其中一个</view>
+      </view>
+
+      <view class="section2">
+        <view class="title">就诊人信息</view>
+
+        <!-- 就诊人姓名 -->
+        <view class="input-item">
+          <text>就诊人</text>
+          <input placeholder="请输入就诊人姓名" value="{{patientName}}" bindinput="handleInputChange" data-field="patientName" />
+        </view>
+
+        <!-- 期望就诊时间 -->
+        <view class="input-item">
+          <text>期望就诊时间</text>
+          <picker mode="date" start="{{currentDate}}" value="{{visitTime}}" bindchange="handleTimeChange">
+            <view class="picker-placeholder">
+              {{visitTime || '请选择期望就诊时间'}}
+            </view>
+          </picker>
+        </view>
+
+        <!-- 联系电话 -->
+        <view class="input-item">
+          <text>联系电话</text>
+          <input placeholder="请输入联系电话" type="number" value="{{phone}}" bindinput="handleInputChange" data-field="phone" maxlength="11" />
+        </view>
+      </view>
+    </view>
+
+    <view class="extra">
+      <view class="title">特殊要求</view>
+      <textarea placeholder="请输入其他服务要求" value="{{specialRequest}}" bindinput="handleSpecialRequestChange" class="textarea" auto-height="{{false}}" maxlength="200" show-count="{{true}}" />
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-btn" bindtap="handleSubmit">提交预约</view>
+  </view>
+
+  <!-- 选项弹窗 -->
+  <view class="modal" wx:if="{{showModal}}">
+    <view class="modal-content">
+      <view class="modal-title">选择{{modalTitle}}</view>
+      <scroll-view scroll-y class="option-scroll">
+        <view wx:for="{{optionList}}" wx:key="id" class="modal-option" bindtap="handleSelectModalOption" data-value="{{item.name}}">
+          {{item.name}}
+        </view>
+      </scroll-view>
+      <view class="modal-close" bindtap="closeModal">取消</view>
+    </view>
+  </view>
+</scroll-view>
