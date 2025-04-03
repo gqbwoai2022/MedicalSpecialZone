@@ -1,1 +1,88 @@
-/* pages/me/index.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  background-color: #f5f5f5;
+}
+
+.mePage {
+  position: relative;
+  height: 100vh;
+
+  /* 顶部绿色背景 */
+  .header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 33.33vh;
+    background-color: #07C160;
+    opacity: 0.65;
+    z-index: 0;
+  }
+
+  /* 用户信息 */
+  .user-info {
+    position: relative;
+    padding: 40rpx 30rpx;
+    z-index: 1;
+  }
+
+  .username {
+    font-size: 40rpx;
+    font-weight: bold;
+    color: white;
+  }
+
+  /* 卡片通用样式 */
+  .card {
+    position: relative;
+    margin: 20rpx 30rpx;
+    padding: 30rpx;
+    background: white;
+    border-radius: 16rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  }
+
+  /* 订单卡片头部 */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40rpx;
+  }
+
+  .card-title {
+    font-size: 34rpx;
+    font-weight: bold;
+  }
+
+  .card-link {
+    font-size: 28rpx;
+    color: #999;
+  }
+
+  /* 订单状态 */
+  .order-status {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .status-item {
+    text-align: center;
+    padding: 20rpx 0;
+    flex: 1;
+  }
+
+  /* 功能入口 */
+  .menu-item {
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid #f0f0f0;
+  }
+
+  .menu-item:last-child {
+    border-bottom: none;
+  }
+}

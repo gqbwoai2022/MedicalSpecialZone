@@ -1,66 +1,36 @@
-// pages/me/index.ts
+// 我的页面 - pages/me/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    userName: "未登录" // 模拟数据，实际可从全局或接口获取
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  // 跳转到订单列表
+  navigateToOrder(e: any) {
+    const type = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: `/pages/order/list?type=${type}`
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 跳转到就诊人管理
+  navigateToPatientManage() {
+    wx.navigateTo({
+      url: '/pages/patient/manage'
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  // 跳转到客服
+  navigateToCustomerService() {
+    wx.navigateTo({
+      url: '/pages/service/index'
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 分享功能
+  navigateToShare() {
+    wx.showToast({
+      title: '转发功能已触发',
+      icon: 'none'
+    });
   }
-})
+});

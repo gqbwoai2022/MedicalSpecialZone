@@ -1,2 +1,45 @@
-<!--pages/me/index.wxml-->
-<text>pages/me/index.wxml</text>
+<navigation-bar title="" back="{{false}}" background="#FFF"></navigation-bar>
+<view class="mePage">
+  <!-- 顶部绿色背景区 -->
+  <view class="header-bg"></view>
+
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <text class="username">{{userName || '未登录用户'}}</text>
+  </view>
+
+  <!-- 订单卡片 -->
+  <view class="card">
+    <!-- 第一行：标题 + 全部 -->
+    <view class="card-header">
+      <text class="card-title">我的订单</text>
+      <text class="card-link">全部</text>
+    </view>
+
+    <!-- 第二行：订单状态 -->
+    <view class="order-status">
+      <view class="status-item" bindtap="navigateToOrder" data-type="unpaid">
+        <text>待支付</text>
+      </view>
+      <view class="status-item" bindtap="navigateToOrder" data-type="paid">
+        <text>已支付</text>
+      </view>
+      <view class="status-item" bindtap="navigateToOrder" data-type="cancelled">
+        <text>已取消</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能入口卡片 -->
+  <view class="card" style="margin-top: 30rpx;">
+    <view class="menu-item" bindtap="navigateToPatientManage">
+      <text>就诊人管理</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToCustomerService">
+      <text>问题与客服</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToShare">
+      <text>分享与转发</text>
+    </view>
+  </view>
+</view>

@@ -1,8 +1,7 @@
 {
-  "pages": ["pages/home/index", "pages/appointment/index", "pages/me/index"],
+  "pages": ["pages/home/index", "pages/appointment/index", "pages/me/index", "pages/packageSelection/index"],
   "tabBar": {
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/index",
         "text": "首页",
         "iconPath": "assets/home.png",

@@ -1,0 +1,46 @@
+<navigation-bar title="套餐选择" back="{{true}}" background="#FFF" delta="pages/appointment/index"></navigation-bar>
+<!-- 页面根容器 -->
+<view class="packageContainer">
+  <!-- 上半部分（1998套餐） -->
+  <view class="section top">
+    <view class="price blue">￥1998</view>
+    <button class="buy-btn blue" bindtap="handleBuy" data-price="1998">
+      立即购买
+    </button>
+    <view class="description">
+      享受由三亚301医联体和海南瑞金医院提供的：
+    </view>
+    <view class="description">
+      1.体检，门诊问诊挂号，住院治疗，检验检查，手术术后康复及转诊等业务对接服务
+    </view>
+    <view class="description">
+      2.各医疗机构全程绿色通道和vip待遇
+    </view>
+  </view>
+
+  <!-- 下半部分（3998套餐） -->
+  <view class="section bottom">
+    <view class="price brown">￥3998</view>
+    <button class="buy-btn orange" bindtap="handleBuy" data-price="3998">
+      立即购买
+    </button>
+    <view class="description">
+      由博鳌乐城国际医疗旅游先行区提供的，指定医院和院士专家团队的：
+    </view>
+    <view class="description">
+      1.体检，门诊问诊挂号，住院治疗，检验检查，手术术后康复及转诊等业务对接服务
+    </view>
+    <view class="description">
+      2.各医疗机构全程绿色通道和vip待遇
+    </view>
+    <view class="description">
+      3.国内唯一使用权的国际化同步的药械及先进医疗技术
+    </view>
+    <view class="description">
+      4.所有合作院士的面诊或远程诊疗
+    </view>
+    <view class="description">
+      5.医疗费用最高优惠
+    </view>
+  </view>
+</view>
