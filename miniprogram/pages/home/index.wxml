@@ -4,7 +4,7 @@
     <video id="myVideo" src="{{videoUrl}}" controls="{{true}}" autoplay="{{true}}" loop="{{false}}" muted="{{false}}" poster="{{videoCover}}" bindplay="onVideoPlay" binderror="onVideoError" class="video-player">
     </video>
   </view>
-  <view class="firstText">
+  <!-- <view class="firstText">
     <view class="title">我司致力于为尊贵会员提供全面而高端的医疗康养资源对接服务，具体涵盖以下核心业务：</view>
     <view class="text">
       专属就医通道：包括在指定合作医院及院士专家处的挂号服务，全程陪诊及医疗绿色通道，确保会员享受VIP级别的就医体验。
@@ -18,7 +18,7 @@
     <view class="text">
       通过一站式全覆盖的医疗康养相关业务的资源对接，我司旨在为会员打造便捷、高效、尊享的医疗康养服务体系。
     </view>
-  </view>
+  </view> -->
   <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
     <swiper-item>
       <image class="swiperItemPic" src="/assets/lunbo1.jpg" mode="aspectFill" />
@@ -91,7 +91,7 @@
   <view class="card">
     <view class="cardTitleWithMore">
       <view class="title">合作医院</view>
-      <view class="moreBtn">更多</view>
+      <view class="moreBtn" bindtap="handleMoreClick" data-type="hospital">更多</view>
     </view>
     <View class="serviceContainer">
       <view class="serviceContainerItem">
@@ -112,7 +112,7 @@
   <view class="card">
     <view class="cardTitleWithMore">
       <view class="title">院士专家</view>
-      <view class="moreBtn">更多</view>
+      <view class="moreBtn" bindtap="handleMoreClick" data-type="expert">更多</view>
     </view>
     <View class="serviceContainer">
       <view class="serviceContainerItem">
@@ -133,7 +133,7 @@
   <view class="card">
     <view class="cardTitleWithMore">
       <view class="title">先进技术</view>
-      <view class="moreBtn">更多</view>
+      <view class="moreBtn" bindtap="handleMoreClick" data-type="technology">更多</view>
     </view>
     <View class="serviceContainer">123</View>
   </view>

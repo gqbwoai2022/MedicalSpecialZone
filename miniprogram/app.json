@@ -1,5 +1,11 @@
 {
-  "pages": ["pages/home/index", "pages/appointment/index", "pages/me/index", "pages/packageSelection/index"],
+  "pages": [
+    "pages/home/index",
+    "pages/homeMore/index",
+    "pages/appointment/index",
+    "pages/me/index",
+    "pages/packageSelection/index"
+  ],
   "tabBar": {
     "list": [{
         "pagePath": "pages/home/index",

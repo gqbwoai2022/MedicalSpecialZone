@@ -1,0 +1,12 @@
+<navigation-bar title="{{navTitle}}" back="{{true}}" background="#FFF">
+</navigation-bar>
+
+<scroll-view class="homeMoreContainer" scroll-y>
+  <view class="list-item" wx:for="{{listData}}" wx:key="id">
+    <image class="thumbnail" src="{{item.image}}" mode="aspectFill" />
+    <view class="content">
+      <view class="main-title">{{item.title}}</view>
+      <view class="desc">{{item.desc}}</view>
+    </view>
+  </view>
+</scroll-view>

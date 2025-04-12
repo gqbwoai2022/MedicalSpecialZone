@@ -1,4 +1,4 @@
-<navigation-bar title="套餐选择" back="{{true}}" background="#FFF" delta="pages/appointment/index"></navigation-bar>
+<navigation-bar title="套餐选择" back="{{true}}" background="#FFF"></navigation-bar>
 <!-- 页面根容器 -->
 <view class="packageContainer">
   <!-- 上半部分（1998套餐） -->
