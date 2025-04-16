@@ -2,20 +2,22 @@
 Page({
   data: {
     navTitle: '',
-    listData: []
+    listData: [],
+    type: '',
   },
 
   onLoad(options) {
     const type: any = options.type; // 接收跳转参数
     this.setNavTitle(type);
     this.loadData(type);
+    this.setData({ type });
   },
 
   // 跳转详情页
   navigateToDetail(e: WechatMiniprogram.TouchEvent) {
-    const id = e.currentTarget.dataset.id;
+    const { id } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/detail/index?id=${id}`
+      url: `/pages/homeMoreDetail/index?id=${id}&type=${this.data.type}`
     });
   },
 
@@ -122,79 +124,79 @@ Page({
           "id": 3,
           "image": "/assets/dongjiahong.jpg",
           "title": "董家鸿院士",
-          "desc": "中国工程院院士，清华大学临床医学院院长，专注肝胆外科手术"
+          "desc": "现任清华大学临床医学院院长，清华大学精准医学研究院院长，清华大学附属北京清华长庚医院执行院长"
         },
         {
           "id": 4,
           "image": "/assets/gejunbo.jpg",
           "title": "葛均波院士",
-          "desc": "中国科学院院士，复旦大学附属中山医院心内科主任，擅长心血管介入治疗"
+          "desc": "复旦大学附属中山医院心内科主任,上海市心血管临床医学中心主任,上海市心血管病研究所所长"
         },
         {
           "id": 5,
           "image": "/assets/guying.jpg",
           "title": "顾瑛院士",
-          "desc": "中国科学院院士，擅长靶向光动力治疗肿瘤和血管性疾病"
+          "desc": "中国科学院院士，激光医学专家，博士生导师"
         },
         {
           "id": 6,
           "image": "/assets/handemin.jpg",
           "title": "韩德民院士",
-          "desc": "中国工程院院士，擅长耳鼻咽喉科内窥镜手术及呼吸暂停综合诊治"
+          "desc": "中国工程院院士，首都医科大学耳鼻咽喉科学院院长，世界华人耳鼻咽喉头颈外科理事会理事长"
         },
         {
           "id": 7,
           "image": "/assets/lilanjuan.jpg",
           "title": "李兰娟院士",
-          "desc": "中国工程院院士，传染病诊治国家重点实验室主任"
+          "desc": "中国工程院院士、浙江大学教授、主任医师、博士生导师"
         },
         {
           "id": 8,
           "image": "/assets/lizhaoshen.jpg",
           "title": "李兆申院士",
-          "desc": "中国工程院院士，擅长消化系统疾病微创诊治"
+          "desc": "海军军医大学长海医院消化内科主任，国家消化病临床医学研究中心主任,中国医师协会常务理事、内镜医师分会会长、胰腺病学专委会主委"
         },
         {
           "id": 9,
           "image": "/assets/ningguang.png",
           "title": "宁光院士",
-          "desc": "中国工程院院士，上海瑞金医院副院长，擅长内分泌代谢病诊治"
+          "desc": "国家代谢性疾病临床研究中心主任，国家卫计委内分泌代谢病重点实验室主任，上海交通大学医学院附属瑞金医院副院长"
         },
         {
           "id": 10,
           "image": "/assets/wangchen.jpg",
           "title": "王晨院士",
-          "desc": "中国工程院院士，国家呼吸疾病临床研究中心主任"
+          "desc": "北京协和医学院院校长，国家呼吸疾病临床研究中心主任，世界卫生组织戒烟与呼吸疾病预防合作中心主任"
         },
         {
           "id": 11,
           "image": "/assets/wangfusheng.jpg",
           "title": "王福生院士",
-          "desc": "中国科学院院士，解放军总医院感染病诊疗中心主任"
+          "desc": "中国科学院院士，解放军总医院第五医学中心感染病诊疗与研究中心主任，国家感染性疾病临床医学研究中心主任，主任医师，博士生导师"
         },
         {
           "id": 12,
           "image": "/assets/yumengsun.jpg",
           "title": "俞梦孙院士",
-          "desc": "中国工程院院士，空军航空医学研究所主任"
+          "desc": "中国工程院院士，中国人民解放军空军军医大学空军航空医学研究所航空医学工程研究中心主任、博士生导师"
         },
         {
           "id": 13,
           "image": "/assets/zhangzhiyuan.jpg",
           "title": "张志愿院士",
-          "desc": "中国工程院院士，擅长口腔颌面部肿瘤诊治"
+          "desc": "中国科学院院士，首都医科大学附属北京天坛医院神经外科学系教授，博士生导师，主任医师，首都医科大学神经外科学院院长"
         },
         {
           "id": 14,
           "image": "/assets/zhaojizong.jpg",
           "title": "赵继宗院士",
-          "desc": "中国科学院院士，推动我国神经外科手术达到国际水准"
+          "desc": "中国科学院院士，首都医科大学附属北京天坛医院神经外科学系教授，博士生导师，主任医师"
         },
         {
           "id": 15,
           "image": "/assets/zhengshusen.jpg",
           "title": "郑树森院士",
-          "desc": "中国工程院院士，浙江大学器官移植研究所所长"
+          "desc": "中国工程院院士，法国国家医学科学院外籍院士，浙江大学外科学教授，博士生导师"
         }
       ],
       'technology': [

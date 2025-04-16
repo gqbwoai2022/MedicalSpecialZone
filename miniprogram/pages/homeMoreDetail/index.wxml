@@ -1,0 +1,46 @@
+<navigation-bar title="{{navTitle}}" back="{{true}}" background="#FFF"></navigation-bar>
+
+<scroll-view class="detail-container" scroll-y>
+  <!-- 图片区域（通用） -->
+  <view class="image-container">
+    <image class="main-image" src="{{detailData.image}}" mode="aspectFill" wx:if="{{detailData.image}}" />
+  </view>
+
+  <!-- 标题（通用） -->
+  <view class="title-section">
+    <text class="main-title">{{detailData.title}}</text>
+  </view>
+
+  <!-- 医院科室标签（仅医院类型） -->
+  <block wx:if="{{type === 'hospital'}}">
+    <scroll-view class="horizontal-scroll" scroll-x wx:if="{{detailData.departments.length}}">
+      <view class="scroll-item" wx:for="{{detailData.departments}}" wx:key="*this">
+        {{item}}
+      </view>
+    </scroll-view>
+  </block>
+
+  <!-- 内容区域（分类型展示） -->
+  <view class="content-section">
+    <block wx:if="{{type === 'hospital'}}">
+      <!-- 医院类型保持原样 -->
+      <view class="section">
+        <view class="section-title">详细介绍</view>
+        <view class="section-content">{{detailData.desc}}</view>
+      </view>
+    </block>
+
+    <block wx:if="{{type === 'expert'}}">
+      <!-- 专家类型新样式 -->
+      <view class="expert-content">
+        <view wx:for="{{detailData.items}}" wx:key="index" class="expert-item">
+          {{item}}
+        </view>
+        <view wx:if="{{detailData.specialty}}" class="expert-specialty">
+          <text class="label">特长：</text>
+          {{detailData.specialty}}
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>

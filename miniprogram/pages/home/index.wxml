@@ -4,21 +4,6 @@
     <video id="myVideo" src="{{videoUrl}}" controls="{{true}}" autoplay="{{true}}" loop="{{false}}" muted="{{false}}" poster="{{videoCover}}" bindplay="onVideoPlay" binderror="onVideoError" class="video-player">
     </video>
   </view>
-  <!-- <view class="firstText">
-    <view class="title">我司致力于为尊贵会员提供全面而高端的医疗康养资源对接服务，具体涵盖以下核心业务：</view>
-    <view class="text">
-      专属就医通道：包括在指定合作医院及院士专家处的挂号服务，全程陪诊及医疗绿色通道，确保会员享受VIP级别的就医体验。
-    </view>
-    <view class="text">
-      尊享医疗特惠：会员将享有国内唯一使用权的药品、医疗器械及技术，并在各合作医疗机构中享受医疗费用最高优惠，确保医疗资源的高效利用与成本节约。
-    </view>
-    <view class="text">
-      全面康养项目：涵盖合作意愿的全部康养项目，为会员提供身心健康的全方位呵护，助力会员实现健康长寿的美好愿景。
-    </view>
-    <view class="text">
-      通过一站式全覆盖的医疗康养相关业务的资源对接，我司旨在为会员打造便捷、高效、尊享的医疗康养服务体系。
-    </view>
-  </view> -->
   <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
     <swiper-item>
       <image class="swiperItemPic" src="/assets/lunbo1.jpg" mode="aspectFill" />

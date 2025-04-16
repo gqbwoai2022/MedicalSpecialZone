@@ -4,7 +4,8 @@
     "pages/homeMore/index",
     "pages/appointment/index",
     "pages/me/index",
-    "pages/packageSelection/index"
+    "pages/packageSelection/index",
+    "pages/homeMoreDetail/index"
   ],
   "tabBar": {
     "list": [{
