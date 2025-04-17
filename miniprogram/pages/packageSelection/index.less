@@ -14,15 +14,14 @@ page {
 
   /* 通用区块样式 */
   .section {
+    margin-top: 20rpx;
     margin-bottom: 40rpx;
-  }
 
-  .top {
-    margin-top: 8%;
-  }
-
-  .bottom {
-    margin-top: 14%;
+    background: #fff;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+    margin-bottom: 40rpx;
   }
 
   /* 价格文字 */
@@ -72,6 +71,21 @@ page {
   .description {
     color: #666;
     font-size: 32rpx;
-    line-height: 2;
+    line-height: 1.8;
+    padding-left: 10rpx;
+    position: relative;
+  }
+
+  /* 绿色系样式 */
+  .price.green {
+    color: #2e7d32;
+    /* 墨绿色 */
+  }
+
+  .buy-btn.green {
+    background-color: #43a047;
+    /* 医疗主题绿色 */
+    box-shadow: 0 2px 4px rgba(67, 160, 71, 0.3);
+    /* 添加同色系阴影 */
   }
 }

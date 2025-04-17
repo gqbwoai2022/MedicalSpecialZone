@@ -20,34 +20,34 @@
   </swiper>
   <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital1.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment1.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital2.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment2.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital3.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment3.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital4.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment4.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital5.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment5.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital6.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment6.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital7.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment7.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital8.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment8.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital9.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment9.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/hospital10.jpg" mode="aspectFill" />
+      <image class="swiperItemPic" src="/assets/equipment10.jpg" mode="aspectFill" />
     </swiper-item>
   </swiper>
 
@@ -101,16 +101,16 @@
     </view>
     <View class="serviceContainer">
       <view class="serviceContainerItem">
-        <image src="/assets/chenlin.jpg" mode="aspectFit" class='pic' />
-        <view>陈霖院士</view>
+        <image class="expertImg" src="/assets/wangchen.jpg" mode="aspectFill" />
+        <view>王晨院士</view>
       </view>
       <view class="serviceContainerItem">
-        <image src="/assets/chenxiangmei.jpg" mode="aspectFit" class='pic' />
+        <image class="expertImg" src="/assets/zhengshusen.jpg" mode="aspectFill" />
+        <view>郑树森院士</view>
+      </view>
+      <view class="serviceContainerItem">
+        <image class="expertImg" src="/assets/chenxiangmei.jpg" mode="aspectFill" />
         <view>陈香美院士</view>
-      </view>
-      <view class="serviceContainerItem">
-        <image src="/assets/dongjiahong.jpg" mode="aspectFit" class='pic' />
-        <view>董家鸿院士</view>
       </view>
     </View>
   </view>

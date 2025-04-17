@@ -2,7 +2,7 @@
 </navigation-bar>
 
 <scroll-view class="homeMoreContainer" scroll-y>
-  <view class="list-item" wx:for="{{listData}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+  <view class="list-item {{type === 'expert' ? 'expert-list-item' : ''}}"  wx:for="{{listData}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
     <image class="thumbnail" src="{{item.image}}" mode="aspectFill" />
     <view class="content">
       <view class="main-title">{{item.title}}</view>
