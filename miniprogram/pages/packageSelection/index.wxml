@@ -1,10 +1,10 @@
 <navigation-bar title="套餐选择" back="{{true}}" background="#FFF"></navigation-bar>
 <!-- 页面根容器 -->
-<view class="packageContainer">
+<scroll-view scroll-y class="packageContainer">
   <!-- 上半部分（1998套餐） -->
   <view class="section">
     <view class="price blue">￥1998</view>
-    <button class="buy-btn blue" bindtap="handleBuy" data-price="1998">
+    <button class="buy-btn blue" bindtap="handleBuy" data-price="1998" data-service="1">
       立即购买
     </button>
     <view class="description">
@@ -21,7 +21,7 @@
   <!-- 下半部分（3998套餐） -->
   <view class="section">
     <view class="price brown">￥3998</view>
-    <button class="buy-btn orange" bindtap="handleBuy" data-price="3998">
+    <button class="buy-btn orange" bindtap="handleBuy" data-price="3998" data-service="2">
       立即购买
     </button>
     <view class="description">
@@ -45,22 +45,22 @@
   </view>
 
   <!-- 新增的5998套餐模块 -->
-<view class="section">
-  <view class="price green">￥5998</view>
-  <button class="buy-btn green" bindtap="handleBuy" data-price="5998">
-    立即购买
-  </button>
-  <view class="description">
-    涵盖以上所有权益，还可根据自身需求享受我司提供的：
+  <view class="section">
+    <view class="price green">￥5998</view>
+    <button class="buy-btn green" bindtap="handleBuy" data-price="5998" data-service="3">
+      立即购买
+    </button>
+    <view class="description">
+      涵盖以上所有权益，还可根据自身需求享受我司提供的：
+    </view>
+    <view class="description">
+      1.机票酒店景点餐饮等全程托管服务
+    </view>
+    <view class="description">
+      2.24小时金牌管家、金牌专业跟随护理、金牌专属司机及专车服务
+    </view>
+    <view class="description">
+      3.全程专业一对一陪诊绿通vip服务等，包括医疗康养旅行业务的高端私人全订制服务
+    </view>
   </view>
-  <view class="description">
-    1.机票酒店景点餐饮等全程托管服务
-  </view>
-  <view class="description">
-    2.24小时金牌管家、金牌专业跟随护理、金牌专属司机及专车服务
-  </view>
-  <view class="description">
-    3.全程专业一对一陪诊绿通vip服务等，包括医疗康养旅行业务的高端私人全订制服务
-  </view>
-</view>
-</view>
+</scroll-view>

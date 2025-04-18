@@ -177,7 +177,7 @@ Page({
 
         // 4. 将 code 发送到后端换取 openid
         const res = await wx.request({
-          url: 'https://your-api.com/auth',
+          url: 'https://yuanhhealth.com/api/user/login',
           method: 'POST',
           data: { code },
         });
@@ -236,7 +236,7 @@ Page({
     wx.showLoading({ title: '提交中...' });
     try {
       const res = await wx.request({
-        url: 'https://your-api-domain.com/appointments',
+        url: 'https://yuanhhealth.com/api/appointment',
         method: 'POST',
         data: {
           openid: userInfo.openId,
@@ -259,16 +259,16 @@ Page({
         }
       });
 
-      if (res.statusCode === 200) {
+      if (res.data.code === 1) {
+        wx.setStorageSync('lastAppointmentId', res.data.data);
         wx.showToast({ title: '预约成功', icon: 'success' });
         setTimeout(() => {
-          wx.switchTab({ url: '/pages/home/index' });
-        }, 1500);
+          wx.navigateTo({ url: `/pages/packageSelection/index` });
+        }, 800);
       } else {
         throw new Error(res.data.message || '提交失败');
       }
     } catch (error) {
-      console.error('提交失败:', error);
       wx.showToast({ title: '提交失败，请重试', icon: 'none' });
     } finally {
       wx.hideLoading();

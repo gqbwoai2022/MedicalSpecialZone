@@ -4,5 +4,18 @@
   "setting": {
     "compileHotReLoad": true,
     "bigPackageSizeSupport": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/home/index",
+          "pathName": "pages/home/index",
+          "query": "scene=type%3Dhospital%26from%3Dtest&other=123",
+          "launchMode": "default",
+          "scene": 1011
+        }
+      ]
+    }
   }
 }
