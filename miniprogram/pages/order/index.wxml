@@ -1,0 +1,42 @@
+<navigation-bar title="{{navTitle}}" back="{{true}}" background="#FFF"></navigation-bar>
+
+<!-- 修改滚动区域 -->
+<scroll-view scroll-y class="order-scroll" bindscrolltolower="loadMore">
+  <block wx:for="{{orderList}}" wx:key="orderId">
+    <view class="order-card">
+      <!-- 服务类型标识 -->
+      <view class="type-tag {{item.type}}">
+        <text>{{item.type}}：{{item.value}}</text>
+      </view>
+
+      <!-- 订单信息 -->
+      <view class="info-row">
+        <text class="label">服务内容：</text>
+        <text class="value">{{item.serviceName}}</text>
+      </view>
+      <view class="info-row">
+        <text class="label">就诊人：</text>
+        <text class="value">{{item.patientName}}</text>
+      </view>
+      <view class="info-row">
+        <text class="label">就诊时间：</text>
+        <text class="value">{{item.visitTime}}</text>
+      </view>
+      <view class="info-row" wx:if="{{item.remark}}">
+        <text class="label">备注：</text>
+        <text class="value">{{item.remark}}</text>
+      </view>
+
+      <!-- 金额及操作 -->
+      <view class="action-row">
+        <text class="amount">￥{{item.amount}}</text>
+        <view class="buttons">
+          <block wx:if="{{activeType === 'unpaid'}}">
+            <button class="btn primary" bindtap="handlePay" data-id="{{item.orderId}}">立即支付</button>
+            <button class="btn" bindtap="cancelOrder" data-id="{{item.orderId}}">取消订单</button>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

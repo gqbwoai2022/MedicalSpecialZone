@@ -5,7 +5,8 @@
     "pages/appointment/index",
     "pages/me/index",
     "pages/packageSelection/index",
-    "pages/homeMoreDetail/index"
+    "pages/homeMoreDetail/index",
+    "pages/order/index"
   ],
   "tabBar": {
     "list": [{

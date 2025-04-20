@@ -13,7 +13,7 @@
     <!-- 第一行：标题 + 全部 -->
     <view class="card-header">
       <text class="card-title">我的订单</text>
-      <text class="card-link">全部</text>
+      <text class="card-link" bindtap="navigateToAllOrders">全部</text>
     </view>
 
     <!-- 第二行：订单状态 -->
