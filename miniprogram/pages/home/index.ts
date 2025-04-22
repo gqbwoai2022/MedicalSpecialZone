@@ -1,47 +1,100 @@
-import { login } from '../../utils/util';
+import { silentLogin, fullLogin } from '../../utils/util';
 Page({
   data: {
+    needAuth: false, // 是否需要显示授权按钮
+    authLoading: false, // 授权按钮加载状态
     videoUrl: "",       // 后端返回的视频地址
     videoCover: "",     // 视频封面图
     isPlaying: false,   // 是否正在播放
   },
-  onLoad() {
-    // 模拟从后端获取视频数据
+  async onLoad() {
     this.fetchVideoData();
-    // 1. 获取全局场景参数
-    const sceneParams = getApp().globalData.sceneParams
+    await this.loginFlowController();
+  },
 
-    // 2. 自动触发登录流程
-    if (sceneParams) {
-      this.handleAutoLogin(sceneParams)
+  // 核心登录控制器
+  async loginFlowController() {
+    if (this.checkAuthValid()) return;
+
+    try {
+      await this.executeSilentLogin();
+      if (this.checkAuthValid()) return;
+    } catch (silentError) {
+      console.log('静默登录失败:', error);
+    }
+    if (!this.data.needAuth) {
+      this.setData({ needAuth: true });
     }
   },
-  async handleAutoLogin() {
+
+  // 检查授权有效性（宽松校验）
+  checkAuthValid(): boolean {
+    return !!wx.getStorageSync('token') && !!wx.getStorageSync('userInfo');
+  },
+
+  // 静默登录流程
+  async executeSilentLogin() {
     try {
-      // 3. 执行微信登录认证
-      wx.showLoading({ title: '登录中' })
-      const loginRes = await login()
-      wx.hideLoading()
+      const code = await silentLogin();
+      await this.callLoginAPI(code, getApp().globalData.sceneParams);
 
-      // 4. 调用后端接口
-      const res = await wx.request({
-        url: 'https://yuanhhealth.com/api/login',
-        method: 'POST',
-        data: {
-          code: loginRes.code,
-          userInfo: loginRes.userInfo,
-          sceneParams: sceneParams
-        }
-      })
-
-      // 5. 存储登录凭证
-      if (res.data.code === 200) {
-        wx.setStorageSync('token', res.data.token)
-        wx.setStorageSync('userInfo', loginRes.userInfo)
+      // 关键判断：静默登录不包含用户信息
+      if (!wx.getStorageSync('userInfo')) {
+        this.setData({ needAuth: true });
+        throw new Error('需要用户授权');
       }
     } catch (error) {
-      console.error('自动登录失败:', error)
-      this.showLoginModal()
+      throw new Error(`静默登录失败: ${error.message}`);
+    }
+  },
+
+  // 统一调用登录接口
+  callLoginAPI(code: string, sceneParams: any) {
+    wx.request({
+      url: 'https://yuanhhealth.com/api/user/login',
+      method: 'POST',
+      data: {
+        code,
+        scene: sceneParams
+      },
+      success: (res) => {
+        try {
+          if (res.data.code === 1) {
+            wx.setStorageSync('token', res.data.data)
+          }
+        } catch (e) {
+          console.error('接口调用失败:', e)
+          if (e.status === 401) { // token失效
+            wx.removeStorageSync('token');
+            throw e;
+          }
+        }
+      }
+    })
+  },
+
+  // 处理手动授权
+  async handleUserAuth() {
+    if (this.data.authLoading) return;
+    this.setData({ authLoading: true })
+    wx.showLoading({ title: '登录中' });
+
+    try {
+      const { code, userInfo } = await fullLogin();
+      wx.setStorageSync('userInfo', userInfo); // 存储用户信息
+      await this.callLoginAPI(code, getApp().globalData.sceneParams)
+      wx.showLoading({ title: '登录成功' });
+      this.setData({ needAuth: false });
+    } catch (error) {
+      wx.showToast({
+        title: error.message.includes('deny')
+          ? '您拒绝了授权'
+          : '授权失败，请重试',
+        icon: 'none'
+      })
+    } finally {
+      this.setData({ authLoading: false });
+      wx.hideLoading();
     }
   },
   showLoginModal() {

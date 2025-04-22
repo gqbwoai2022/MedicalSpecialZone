@@ -5,7 +5,7 @@
 
   <!-- 用户信息 -->
   <view class="user-info">
-    <text class="username">{{userName || '未登录用户'}}</text>
+    <text class="username" bindtap="onTapUserInfo">{{userName}}</text>
   </view>
 
   <!-- 订单卡片 -->

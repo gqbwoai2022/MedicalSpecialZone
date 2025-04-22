@@ -9,7 +9,7 @@ page {
 
 .order-scroll {
   height: calc(100% - 100px);
-  padding: 0 30rpx;
+  padding: 0 16rpx;
   box-sizing: border-box;
 
   .order-card {
@@ -20,36 +20,20 @@ page {
     box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
   }
 
-  .type-tag {
-    display: inline-block;
-    padding: 4rpx 12rpx;
-    border-radius: 6rpx;
-    margin-bottom: 16rpx;
-  }
-
-  .type-tag.hospital {
-    background: #e6f7ff;
-    color: #1890ff;
-  }
-
-  .type-tag.tech {
-    background: #f6ffed;
-    color: #52c41a;
-  }
-
-  .type-tag.expert {
-    background: #fff7e6;
-    color: #fa8c16;
+  .service-row {
+    font-size: 32rpx;
+    margin: 20rpx 0;
+    font-weight: 600;
   }
 
   .info-row {
     display: flex;
-    margin: 12rpx 0;
-    font-size: 28rpx;
+    font-size: 32rpx;
+    margin: 16rpx 0;
   }
 
   .label {
-    width: 140rpx;
+    width: 160rpx;
     color: #666;
   }
 
@@ -72,15 +56,21 @@ page {
     font-weight: bold;
   }
 
+  .buttons {
+    display: flex;
+  }
+
   .buttons .btn {
     margin-left: 20rpx;
     font-size: 26rpx;
     padding: 8rpx 20rpx;
     border-radius: 6rpx;
+
   }
 
   .buttons .primary {
     background: #07c160;
     color: white;
+
   }
 }

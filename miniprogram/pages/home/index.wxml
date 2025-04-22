@@ -51,7 +51,7 @@
     </swiper-item>
   </swiper>
 
-  <view class="card">
+  <!-- <view class="card">
     <view class="cardTitle">重点发展领域</view>
     <view class="importantContent">
       <view class="item">
@@ -71,7 +71,7 @@
         <view class="text">药械技术</view>
       </view>
     </view>
-  </view>
+  </view> -->
 
   <view class="card">
     <view class="cardTitleWithMore">
@@ -85,7 +85,7 @@
       </view>
       <view class="serviceContainerItem">
         <image src="/assets/hospital2.jpg" mode="aspectFit" class='pic' />
-        <view>上海交通大学医学院附属瑞金医院海南医院</view>
+        <view>瑞金医院</view>
       </view>
       <view class="serviceContainerItem">
         <image src="/assets/hospital3.jpg" mode="aspectFit" class='pic' />
@@ -123,3 +123,14 @@
     <View class="serviceContainer">123</View>
   </view>
 </scroll-view>
+<view wx:if="{{needAuth}}" class="auth-container">
+  <button 
+    class="auth-button"
+    bindtap="handleUserAuth"
+    loading="{{authLoading}}"
+    hover-class="none"
+  >
+    微信一键登录
+  </button>
+  <view class="auth-tip">请授权获取用户信息以继续</view>
+</view>

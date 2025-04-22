@@ -3,59 +3,135 @@ type OrderType = 'hospital' | 'tech' | 'expert';
 // 扩展订单状态类型
 type OrderStatus = 'all' | 'unpaid' | 'paid' | 'cancelled';
 
+const titleMap: any = {
+  all: '全部订单',
+  unpaid: '待支付',
+  paid: '已支付',
+  cancelled: '已取消',
+};
+
+const ammountMap: any = {
+  1: '1998',
+  2: '3998',
+  3: '5998'
+};
+
+const statusMap: any = {
+  '0': '未支付',
+  '1': '已支付',
+  '-1': '已取消（无需退款）',
+  '-2': '已取消（未退款）',
+  '-3': '已取消（已退款）',
+};
+
 Page({
   data: {
-    activeType: 'all', // 默认显示全部
     orderList: [
-      {
-        type: 'hospital',
-        orderId: '1',
-        serviceName: 'text',
-        patientName: 'qqq',
-        visitTime: '2025-05-01',
-        remark: '不吃香菜',
-        amount: 3988,
-        status: 'unpaid',
-        value: '三甲医院'
-      },
     ],
     loading: false,
-    hasMore: true,
-    page: 1,
-    pageSize: 10,
-    navTitle: '我的订单'
+    navTitle: '我的订单',
+    options: {},
   },
-
-  async onLoad(options: any) {
-    // this.loadData();
+  onShow() {
+    this.loadData(this.data.options);
+  },
+  onLoad(options: any) {
+    this.setData({ options });
+    this.loadData(options);
   },
 
   // 加载数据
-  async loadData() {
-    const res = await wx.request({
-      url: 'https://yuanhhealth.com/api/order/list',
-      method: 'GET',
-      header: { Authorization: `Bearer ${wx.getStorageSync('token')}` },
-      data: {
-        type: this.data.activeType,
-        page: this.data.page,
-        pageSize: this.data.pageSize
-      }
-    });
-
-    if (res.data.code === 1) {
-      const list = res.data.data.list || [];
+  async loadData(options: any) {
+    if (options.type) {
       this.setData({
-        orderList: list,
+        navTitle: titleMap[options.type]
       });
     }
+    wx.request({
+      url: 'https://yuanhhealth.com/api/appointment/orders',
+      method: 'GET',
+      header: { Authorization: wx.getStorageSync('token') },
+      success: (res) => {
+        try {
+          if (res.data.code === 1 && res.data?.data?.length) {
+            const allData = res.data.data.map((item: any) => {
+              let statusColor = '#999';
+              if (item.status === 0) statusColor = '#fa8c16'; // 待支付-橙色
+              if (item.status === 1) statusColor = '#52c41a'; // 已支付-绿色
+              if (item.status < 0) statusColor = '#bfbfbf';   // 已取消-灰色
+              return {
+                orderId: item.id,
+                serviceName: item.service,
+                patientName: item.patient,
+                visitTime: item.date,
+                remark: item.specialRequirement || '',
+                service: item.servicePackage,
+                amount: ammountMap[item.servicePackage],
+                status: statusMap[`${item.status.toString()}`],
+                statusValue: item.status,
+                statusColor,
+              }
+            })
+            this.setData({
+              orderList: allData.filter((item: any) => {
+                if (options.type === 'unpaid' && item.statusValue === 0) {
+                  return item;
+                } else if (options.type === 'paid' && item.statusValue === 1) {
+                  return item;
+                } else if (options.type === 'cancelled' && item.statusValue < 0) {
+                  return item;
+                } else if (options.type === 'all') {
+                  return item;
+                }
+              })
+            });
+          }
+        } catch (e) {
+          console.error('接口调用失败:', e);
+        }
+      }
+    });
   },
 
   // 立即支付
-  handlePay(e: any) {
+  async handlePay(e: any) {
     const orderId = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: `/pages/payment/index?orderId=${orderId}`
+    const serviceType = e.currentTarget.dataset.type;
+    this.setData({ loading: true });
+    wx.showLoading({ title: '准备支付中...' });
+    wx.request({
+      url: 'https://yuanhhealth.com/api/appointment/preOrder',
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': wx.getStorageSync('token')
+      },
+      data: {
+        service: serviceType,
+        appointmentId: orderId
+      },
+      success: async (res) => {
+        if (res.data.code === 1) {
+          const paymentParams = res.data.data;
+          const paymentRes = await new Promise((resolve, reject) => {
+            wx.requestPayment({
+              timeStamp: paymentParams.timeStamp,
+              nonceStr: paymentParams.nonceStr,
+              package: paymentParams.package,
+              signType: paymentParams.signType,
+              paySign: paymentParams.paySign,
+              success: resolve,
+              fail: reject
+            });
+          });
+          this.loadData(this.data.options);
+        } else {
+          wx.showToast({
+            title: res.data.msg || '支付流程异常',
+            icon: 'none',
+          });
+        }
+      }
     });
   },
 
@@ -68,23 +144,31 @@ Page({
     });
 
     if (confirm) {
-      await wx.request({
-        url: `https://yuanhhealth.com/api/order/cancel/${orderId}`,
-        method: 'POST'
+      wx.request({
+        url: `https://yuanhhealth.com/api/appointment/cancel`,
+        method: 'POST',
+        header: {
+          'Content-Type': 'application/json',
+          'Authorization': wx.getStorageSync('token')
+        },
+        data: {
+          appointmentId: orderId
+        },
+        success: (res) => {
+          if (res.data.code === 1) {
+            wx.showToast({
+              title: '取消成功',
+              icon: 'none',
+            });
+            this.loadData(this.data.options);
+          } else {
+            wx.showToast({
+              title: res.data.msg || '取消失败',
+              icon: 'none',
+            });
+          }
+        }
       });
-      this.loadData(); // 刷新列表
     }
   },
-
-  // 过滤器
-  filters: {
-    typeTextFilter(value: OrderType) {
-      const map = {
-        hospital: '医院服务',
-        tech: '先进技术',
-        expert: '院士专家'
-      };
-      return map[value] || value;
-    }
-  } as any
 });

@@ -1,12 +1,14 @@
+import { silentLogin, fullLogin } from '../../utils/util';
 // 定义用户信息类型
 type UserInfo = {
   nickName: string;
   avatarUrl: string;
-  openId?: string; // 需要后续通过 wx.login 获取
 };
 
 Page({
   data: {
+    isLoggedIn: false,
+    userInfo: null,
     // 当前选中的类型（hospital/expert/tech）
     selectedType: '',
     // 已选的值
@@ -17,16 +19,34 @@ Page({
     showModal: false,
     modalTitle: '',
     optionList: [],
-    // 模拟数据
     hospitalList: [
-      { id: 1, name: '北京协和医院' },
-      { id: 2, name: '上海瑞金医院' },
-      { id: 3, name: '广州中山医院' }
+      { id: 1, name: '中国人民解放军总医院海南医院' },
+      { id: 2, name: '瑞金医院' },
+      { id: 3, name: '四川大学华西乐城医院' },
+      { id: 4, name: '博鳌超级医院' },
+      { id: 5, name: '中国干细胞集团海南博鳌干细胞附属医院' },
+      { id: 6, name: '上海中医药大学博鳌国际医院' },
+      { id: 7, name: '慈铭博鳌国际医院' },
+      { id: 8, name: '树兰医院' },
+      { id: 9, name: '博鳌恒大国际医院' },
+      { id: 10, name: '海南启研干细胞抗衰老医院' },
     ],
     expertList: [
-      { id: 1, name: '张院士（心血管科）' },
-      { id: 2, name: '李院士（神经外科）' },
-      { id: 3, name: '王院士（肿瘤科）' }
+      { id: 1, name: '王晨院士' },
+      { id: 2, name: '郑树森院士' },
+      { id: 3, name: '陈香美院士' },
+      { id: 4, name: '董家鸿院士' },
+      { id: 5, name: '葛均波院士' },
+      { id: 6, name: '顾瑛院士' },
+      { id: 7, name: '韩德民院士' },
+      { id: 8, name: '李兰娟院士' },
+      { id: 9, name: '李兆申院士' },
+      { id: 10, name: '宁光院士' },
+      { id: 11, name: '陈霖院士' },
+      { id: 12, name: '王福生院士' },
+      { id: 13, name: '俞梦孙院士' },
+      { id: 14, name: '张志愿院士' },
+      { id: 15, name: '赵继宗院士' },
     ],
     techList: [
       { id: 1, name: 'AI 辅助诊断' },
@@ -37,8 +57,6 @@ Page({
     visitTime: '',         // 就诊时间
     phone: '',             // 联系电话
     currentDate: new Date().toISOString().split('T')[0], // 默认今天，格式：YYYY-MM-DD
-    isLoggedIn: false,      // 是否已登录
-    userInfo: null as UserInfo | null, // 明确类型为 UserInfo 或 null
     specialRequest: '',
   },
 
@@ -77,13 +95,19 @@ Page({
     const { selectedType } = this.data;
 
     // 更新选中值（其他选项清空）
-    const updateData = {
+    const updateData: any = {
       showModal: false,
       selectedHospital: '',
       selectedExpert: '',
       selectedTech: ''
     };
-    updateData[`selected${selectedType.charAt(0).toUpperCase() + selectedType.slice(1)}`] = value;
+
+    const typeMap: any = {
+      hospital: 'selectedHospital',
+      expert: 'selectedExpert',
+      tech: 'selectedTech',
+    };
+    updateData[`${typeMap[selectedType]}`] = value;
 
     this.setData(updateData);
   },
@@ -117,10 +141,14 @@ Page({
     });
   },
 
+  handleSpecialRequestChange(e: any) {
+    this.setData({
+      specialRequest: e.detail.value
+    });
+  },
+
   // 提交预约
   async handleSubmit() {
-    wx.navigateTo({ url: `/pages/packageSelection/index` });
-    return;
     const {
       selectedHospital, selectedExpert, selectedTech,
       patientName, visitTime, phone
@@ -143,18 +171,7 @@ Page({
       wx.showToast({ title: '请输入正确的手机号', icon: 'none' });
       return;
     }
-    console.log('提交数据:', {
-      appointment: {
-        hospital: selectedHospital,
-        expert: selectedExpert,
-        tech: selectedTech
-      },
-      patient: {
-        name: patientName,
-        time: visitTime,
-        phone: phone
-      }
-    });
+
     // 4. 检查微信登录状态
     if (!this.data.isLoggedIn) {
       await this.checkLogin();
@@ -166,51 +183,41 @@ Page({
   // 检查微信登录状态
   async checkLogin() {
     try {
-      // 1. 检查是否已授权用户信息
-      const { authSetting } = await wx.getSetting();
-      if (authSetting?.['scope.userInfo']) {
-        // 2. 已授权，获取用户昵称和头像
-        const { userInfo } = await wx.getUserProfile({ desc: '用于提交预约信息' });
-
-        // 3. 获取微信登录凭证 code（关键步骤）
-        const { code } = await wx.login(); // 静默获取 code
-
-        // 4. 将 code 发送到后端换取 openid
-        const res = await wx.request({
-          url: 'https://yuanhhealth.com/api/user/login',
-          method: 'POST',
-          data: { code },
-        });
-
-        // 5. 更新用户信息（包含 openid）
+      // 1. 检查本地存储的登录态
+      const token = wx.getStorageSync('token');
+      const storedUser = wx.getStorageSync('userInfo');
+      // 2. 已有完整登录态
+      if (token && storedUser) {
         this.setData({
           isLoggedIn: true,
-          userInfo: {
-            nickName: userInfo.nickName,
-            avatarUrl: userInfo.avatarUrl,
-            openId: res.data.openid // 假设后端返回 openid
-          }
+          userInfo: storedUser
         });
         return true;
-      } else {
-        // 6. 用户未授权，引导授权
-        const { confirm } = await wx.showModal({
-          title: '提示',
-          content: '需要您授权登录才能提交预约',
-          confirmText: '去授权'
-        });
-        if (confirm) {
-          const { authSetting } = await wx.openSetting();
-          if (authSetting?.['scope.userInfo']) {
-            return this.checkLogin(); // 递归调用自身完成授权
-          }
-        }
-        return false;
       }
+      // 3. 触发静默登录流程
+      await silentLogin();
+
+      // 6. 需要手动授权
+      await this.handleManualAuth();
+      return true;
     } catch (error) {
-      console.error('登录失败:', error);
-      wx.showToast({ title: '登录失败，请重试', icon: 'none' });
+      console.error('登录检查失败:', error);
       return false;
+    }
+  },
+
+  // 手动授权处理
+  async handleManualAuth() {
+    try {
+      const { userInfo } = await fullLogin();
+      wx.setStorageSync('userInfo', userInfo);
+      this.setData({
+        isLoggedIn: true,
+        userInfo: userInfo
+      });
+    } catch (error) {
+      wx.showToast({ title: '授权失败，请重试', icon: 'none' });
+      throw error;
     }
   },
 
@@ -223,55 +230,41 @@ Page({
       patientName,
       visitTime,
       phone,
-      specialRequest,
-      userInfo
+      specialRequest
     } = this.data;
 
-    // 确保 userInfo 存在且包含 openId
-    if (!userInfo?.openId) {
-      wx.showToast({ title: '用户信息获取失败', icon: 'none' });
-      return;
-    }
+    const params = {
+      service: selectedHospital || selectedExpert || selectedTech,
+      phone: phone,
+      patient: patientName,
+      date: visitTime,
+      specialRequirement: specialRequest,
+    };
 
     wx.showLoading({ title: '提交中...' });
-    try {
-      const res = await wx.request({
-        url: 'https://yuanhhealth.com/api/appointment',
-        method: 'POST',
-        data: {
-          openid: userInfo.openId,
-          nickname: userInfo.nickName,
-          avatar: userInfo.avatarUrl,
-          appointment: {
-            type: selectedHospital ? 'hospital' : selectedExpert ? 'expert' : 'tech',
-            value: selectedHospital || selectedExpert || selectedTech
-          },
-          patient: {
-            name: patientName,
-            time: visitTime,
-            phone
-          },
-          remark: specialRequest || '无'
-        },
-        header: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + wx.getStorageSync('token')
+    wx.request({
+      url: 'https://yuanhhealth.com/api/appointment',
+      method: 'POST',
+      data: params,
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': wx.getStorageSync('token')
+      },
+      success: (res) => {
+        try {
+          if (res.data.code === 1) {
+            wx.setStorageSync('lastAppointmentId', res.data.data);
+            wx.showToast({ title: '预约成功', icon: 'success' });
+            setTimeout(() => {
+              wx.navigateTo({ url: `/pages/packageSelection/index` });
+            }, 600);
+          } else {
+            wx.showToast({ title: res.data.message || '提交失败', icon: 'none' });
+          }
+        } catch (e) {
+          wx.showToast({ title: '提交失败，请重试', icon: 'none' });
         }
-      });
-
-      if (res.data.code === 1) {
-        wx.setStorageSync('lastAppointmentId', res.data.data);
-        wx.showToast({ title: '预约成功', icon: 'success' });
-        setTimeout(() => {
-          wx.navigateTo({ url: `/pages/packageSelection/index` });
-        }, 800);
-      } else {
-        throw new Error(res.data.message || '提交失败');
       }
-    } catch (error) {
-      wx.showToast({ title: '提交失败，请重试', icon: 'none' });
-    } finally {
-      wx.hideLoading();
-    }
+    });
   }
 });

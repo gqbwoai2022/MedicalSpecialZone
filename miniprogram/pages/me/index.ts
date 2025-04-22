@@ -1,8 +1,78 @@
-// 我的页面 - pages/me/index.js
+import { fullLogin } from '../../utils/util'; // 引入登录工具方法
 Page({
   data: {
-    userName: "未登录" // 模拟数据，实际可从全局或接口获取
+    userName: '未登录，点击登录',
+    isLoggedIn: false // 新增登录状态标识
   },
+  // 页面显示时更新状态
+  onShow() {
+    this.updateLoginStatus();
+  },
+  // 更新登录状态
+  updateLoginStatus() {
+    const userInfo = wx.getStorageSync('userInfo');
+    const isLoggedIn = !!userInfo;
+    this.setData({
+      isLoggedIn,
+      userName: isLoggedIn ? userInfo.nickName : '未登录，点击登录'
+    });
+  },
+
+  // 点击用户信息区域
+  onTapUserInfo() {
+    if (!this.data.isLoggedIn) {
+      this.handleLogin();
+    }
+  },
+
+  // 处理登录流程
+  async handleLogin() {
+    try {
+      // 复用首页的完整登录流程
+      const { code, userInfo } = await fullLogin();
+
+      // 调用登录接口（复用首页接口）
+      await this.callLoginAPI(code);
+
+      // 更新本地存储
+      wx.setStorageSync('userInfo', userInfo);
+
+      // 更新页面状态
+      this.updateLoginStatus();
+
+      wx.showToast({ title: '登录成功', icon: 'success' });
+    } catch (error) {
+      console.error('登录失败:', error);
+      wx.showToast({
+        title: error.message.includes('deny') ? '您取消了授权' : '登录失败',
+        icon: 'none'
+      });
+    }
+  },
+
+  // 复用首页的登录接口调用
+  async callLoginAPI(code: any) {
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: 'https://yuanhhealth.com/api/user/login',
+        method: 'POST',
+        data: {
+          code,
+          scene: getApp().globalData.sceneParams
+        },
+        success: (res) => {
+          if (res.data.code === 1) {
+            wx.setStorageSync('token', res.data.data);
+            resolve(true);
+          } else {
+            reject(new Error(res.data.msg || '登录失败'));
+          }
+        },
+        fail: reject
+      });
+    });
+  },
+
 
   // 点击"全部"按钮
   navigateToAllOrders() {
@@ -14,13 +84,8 @@ Page({
   // 跳转到订单列表
   navigateToOrder(e: any) {
     const type = e.currentTarget.dataset.type;
-    const titleMap = {
-      unpaid: '待支付订单',
-      paid: '已支付订单',
-      cancelled: '已取消订单'
-    };
     wx.navigateTo({
-      url: `/pages/order/index?type=${type}&title=${titleMap[type]}`
+      url: `/pages/order/index?type=${type}`
     });
   },
 
