@@ -6,48 +6,48 @@
   </view>
   <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/lunbo1.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo1.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/lunbo2.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo2.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/lunbo3.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo3.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/lunbo4.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo4.jpg" mode="aspectFill" />
     </swiper-item>
   </swiper>
   <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment1.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment1.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment2.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment2.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment3.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment3.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment4.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment4.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment5.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment5.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment6.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment6.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment7.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment7.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment8.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment8.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment9.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment9.jpg" mode="aspectFill" />
     </swiper-item>
     <swiper-item>
-      <image class="swiperItemPic" src="/assets/equipment10.jpg" mode="aspectFill" />
+      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment10.jpg" mode="aspectFill" />
     </swiper-item>
   </swiper>
 
@@ -55,19 +55,19 @@
     <view class="cardTitle">重点发展领域</view>
     <view class="importantContent">
       <view class="item">
-        <image src="/assets/home.png" class='pic' />
+        <image lazy-load src="/assets/home.png" class='pic' />
         <view class="text">康养康复</view>
       </view>
       <view class="item">
-        <image src="/assets/home.png" class='pic' />
+        <image lazy-load src="/assets/home.png" class='pic' />
         <view class="text">健康管理</view>
       </view>
       <view class="item">
-        <image src="/assets/home.png" class='pic' />
+        <image lazy-load src="/assets/home.png" class='pic' />
         <view class="text">特许医疗</view>
       </view>
       <view class="item">
-        <image src="/assets/home.png" class='pic' />
+        <image lazy-load src="/assets/home.png" class='pic' />
         <view class="text">药械技术</view>
       </view>
     </view>
@@ -80,15 +80,15 @@
     </view>
     <View class="serviceContainer">
       <view class="serviceContainerItem">
-        <image src="/assets/hospital1.jpg" mode="aspectFit" class='pic' />
+        <image lazy-load src="http://cos.yuanhhealth.com/hospital1.jpg" mode="aspectFit" class='pic' />
         <view>中国人民解放军总医院海南医院</view>
       </view>
       <view class="serviceContainerItem">
-        <image src="/assets/hospital2.jpg" mode="aspectFit" class='pic' />
+        <image lazy-load src="http://cos.yuanhhealth.com/hospital2.jpg" mode="aspectFit" class='pic' />
         <view>瑞金医院</view>
       </view>
       <view class="serviceContainerItem">
-        <image src="/assets/hospital3.jpg" mode="aspectFit" class='pic' />
+        <image lazy-load src="http://cos.yuanhhealth.com/hospital3.jpg" mode="aspectFit" class='pic' />
         <view>四川大学华西乐城医院</view>
       </view>
     </View>
@@ -101,15 +101,15 @@
     </view>
     <View class="serviceContainer">
       <view class="serviceContainerItem">
-        <image class="expertImg" src="/assets/wangchen.jpg" mode="aspectFill" />
+        <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/wangchen.jpg" mode="aspectFill" />
         <view>王晨院士</view>
       </view>
       <view class="serviceContainerItem">
-        <image class="expertImg" src="/assets/zhengshusen.jpg" mode="aspectFill" />
+        <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/zhengshusen.jpg" mode="aspectFill" />
         <view>郑树森院士</view>
       </view>
       <view class="serviceContainerItem">
-        <image class="expertImg" src="/assets/chenxiangmei.jpg" mode="aspectFill" />
+        <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/chenxiangmei.jpg" mode="aspectFill" />
         <view>陈香美院士</view>
       </view>
     </View>
