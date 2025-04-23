@@ -37,7 +37,7 @@
     <!-- <view class="menu-item" bindtap="navigateToPatientManage">
       <text>就诊人管理</text>
     </view> -->
-    <view class="menu-item" bindtap="navigateToCustomerService">
+    <view class="menu-item">
       <button open-type="contact">问题与客服</button>
     </view>
     <view class="menu-item" bindtap="navigateToShare">

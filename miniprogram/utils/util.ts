@@ -6,7 +6,7 @@ type LoginResult = {
 
 // 使用独立函数代替对象方法
 export const silentLogin = async (): Promise<string> => {
-  const res = await wxLogin()
+  const res: any = await wxLogin()
   return res.code
 }
 
@@ -36,8 +36,8 @@ const getUserProfile = () => {
   return new Promise((resolve, reject) => {
     wx.getUserProfile({
       desc: '用于完善会员信息',
-      success: (res) => resolve(res.userInfo),
-      fail: (err) => reject(err)
+      success: (res: any) => resolve(res.userInfo),
+      fail: (err: any) => reject(err)
     })
   })
 }

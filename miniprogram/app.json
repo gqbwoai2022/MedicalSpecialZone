@@ -1,13 +1,34 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/homeMore/index",
     "pages/appointment/index",
-    "pages/me/index",
-    "pages/packageSelection/index",
-    "pages/homeMoreDetail/index",
-    "pages/order/index"
+    "pages/me/index"
   ],
+  "subpackages": [{
+      "root": "packageHome",
+      "pages": [
+        "pages/homeMore/index",
+        "pages/homeMoreDetail/index"
+      ]
+    },
+    {
+      "root": "packageOrder",
+      "pages": [
+        "pages/order/index",
+        "pages/packageSelection/index"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/home/index": {
+      "network": "all",
+      "packages": ["packageHome"]
+    },
+    "pages/appointment/index": {
+      "network": "all",
+      "packages": ["packageOrder"]
+    }
+  },
   "tabBar": {
     "list": [{
         "pagePath": "pages/home/index",

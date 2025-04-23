@@ -1,9 +1,11 @@
 import { silentLogin, fullLogin } from '../../utils/util';
-// 定义用户信息类型
-type UserInfo = {
-  nickName: string;
-  avatarUrl: string;
-};
+
+
+interface ApiResponse<T = any> {
+  code: number;
+  msg?: string;
+  data: T;
+}
 
 Page({
   data: {
@@ -250,16 +252,16 @@ Page({
         'Content-Type': 'application/json',
         'Authorization': wx.getStorageSync('token')
       },
-      success: (res) => {
+      success: (res: WechatMiniprogram.RequestSuccessCallbackResult<ApiResponse<any>>) => {
         try {
           if (res.data.code === 1) {
             wx.setStorageSync('lastAppointmentId', res.data.data);
             wx.showToast({ title: '预约成功', icon: 'success' });
             setTimeout(() => {
-              wx.navigateTo({ url: `/pages/packageSelection/index` });
+              wx.navigateTo({ url: `/packageOrder/pages/packageSelection/index` });
             }, 600);
           } else {
-            wx.showToast({ title: res.data.message || '提交失败', icon: 'none' });
+            wx.showToast({ title: res.data.msg || '提交失败', icon: 'none' });
           }
         } catch (e) {
           wx.showToast({ title: '提交失败，请重试', icon: 'none' });

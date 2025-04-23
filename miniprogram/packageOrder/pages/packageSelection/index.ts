@@ -1,4 +1,10 @@
-import { silentLogin, fullLogin } from '../../utils/util';
+import { silentLogin, fullLogin } from '../../../utils/util';
+interface ApiResponse<T = any> {
+  code: number;
+  msg?: string;
+  data: T;
+}
+
 Page({
   data: {
     loading: false // 加载状态
@@ -41,7 +47,7 @@ Page({
           code,
           scene: getApp().globalData.sceneParams
         },
-        success: (res) => {
+        success: (res: WechatMiniprogram.RequestSuccessCallbackResult<ApiResponse<any>>) => {
           if (res.data.code === 1) {
             wx.setStorageSync('token', res.data.data);
             resolve(true);
@@ -53,7 +59,7 @@ Page({
       });
     });
   },
-  handleBuy(e: any) {
+  handleBuy(e: any): void {
     // 1. 获取必要参数
     const serviceType = e.currentTarget.dataset.service; // 从按钮获取套餐类型
     const appointmentId = wx.getStorageSync('lastAppointmentId');
@@ -62,7 +68,7 @@ Page({
     // 2. 参数校验
     if (!appointmentId) {
       wx.showToast({ title: '未找到预约信息，请重新预约', icon: 'none' });
-      return wx.navigateBack();
+      wx.navigateBack();
     }
     if (!token) {
       wx.showToast({ title: '请先登录', icon: 'none' });
@@ -85,7 +91,7 @@ Page({
         service: serviceType,
         appointmentId: appointmentId
       },
-      success: (res) => {
+      success: (res: any) => {
         try {
           if (res.data.code === 1) {
             // 6. 获取支付参数
@@ -115,6 +121,7 @@ Page({
         } finally {
           this.setData({ loading: false });
           wx.hideLoading();
+          return;
         }
       }
     });

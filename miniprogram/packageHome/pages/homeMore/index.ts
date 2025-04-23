@@ -2,7 +2,7 @@
 Page({
   data: {
     navTitle: '',
-    listData: [],
+    listData: [] as any[],
     type: '',
   },
 
@@ -17,7 +17,7 @@ Page({
   navigateToDetail(e: WechatMiniprogram.TouchEvent) {
     const { id } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/homeMoreDetail/index?id=${id}&type=${this.data.type}`
+      url: `/packageHome/pages/homeMoreDetail/index?id=${id}&type=${this.data.type}`
     });
   },
 

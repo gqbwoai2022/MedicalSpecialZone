@@ -20,7 +20,7 @@ Page({
       await this.executeSilentLogin();
       if (this.checkAuthValid()) return;
     } catch (silentError) {
-      console.log('静默登录失败:', error);
+      console.log('静默登录失败:', silentError);
     }
     if (!this.data.needAuth) {
       this.setData({ needAuth: true });
@@ -57,7 +57,7 @@ Page({
         code,
         scene: sceneParams
       },
-      success: (res) => {
+      success: (res: any) => {
         try {
           if (res.data.code === 1) {
             wx.setStorageSync('token', res.data.data)
@@ -97,25 +97,13 @@ Page({
       wx.hideLoading();
     }
   },
-  showLoginModal() {
-    wx.showModal({
-      title: '登录提示',
-      content: '需要登录才能使用完整功能',
-      success: (res) => {
-        if (res.confirm) {
-          this.handleAutoLogin()
-        } else {
-          wx.hideLoading()
-        }
-      }
-    })
-  },
   // 从后端获取视频信息
   fetchVideoData() {
     wx.request({
       url: "https://your-api.com/getVideo", // 替换为你的API
       method: "GET",
       success: (res: any) => {
+        console.log(res);
         // this.setData({
         //   videoUrl: res.data.videoUrl,
         //   videoCover: res.data.videoCover,
@@ -128,6 +116,7 @@ Page({
   },
   // 视频开始播放
   onVideoPlay(e: any) {
+    console.log(e);
     this.setData({ isPlaying: true });
   },
   // 视频播放错误
@@ -138,7 +127,7 @@ Page({
   handleMoreClick: function (e: any) {
     const type = e.currentTarget.dataset.type; // 获取卡片类型标识
     wx.navigateTo({
-      url: `/pages/homeMore/index?type=${type}` // 传递类型参数
+      url: `/packageHome/pages/homeMore/index?type=${type}` // 传递类型参数
     });
   },
 })

@@ -3,6 +3,12 @@ type OrderType = 'hospital' | 'tech' | 'expert';
 // 扩展订单状态类型
 type OrderStatus = 'all' | 'unpaid' | 'paid' | 'cancelled';
 
+interface ApiResponse<T = any> {
+  code: number;
+  msg?: string;
+  data: T;
+}
+
 const titleMap: any = {
   all: '全部订单',
   unpaid: '待支付',
@@ -51,9 +57,9 @@ Page({
       url: 'https://yuanhhealth.com/api/appointment/orders',
       method: 'GET',
       header: { Authorization: wx.getStorageSync('token') },
-      success: (res) => {
+      success: (res: WechatMiniprogram.RequestSuccessCallbackResult<ApiResponse<any>>) => {
         try {
-          if (res.data.code === 1 && res.data?.data?.length) {
+          if (res.data?.code === 1 && res.data?.data?.length) {
             const allData = res.data.data.map((item: any) => {
               let statusColor = '#999';
               if (item.status === 0) statusColor = '#fa8c16'; // 待支付-橙色
@@ -110,10 +116,10 @@ Page({
         service: serviceType,
         appointmentId: orderId
       },
-      success: async (res) => {
-        if (res.data.code === 1) {
-          const paymentParams = res.data.data;
-          const paymentRes = await new Promise((resolve, reject) => {
+      success: async (res: WechatMiniprogram.RequestSuccessCallbackResult<ApiResponse<any>>) => {
+        if (res?.data?.code === 1) {
+          const paymentParams = res?.data?.data;
+          await new Promise((resolve, reject) => {
             wx.requestPayment({
               timeStamp: paymentParams.timeStamp,
               nonceStr: paymentParams.nonceStr,
@@ -127,7 +133,7 @@ Page({
           this.loadData(this.data.options);
         } else {
           wx.showToast({
-            title: res.data.msg || '支付流程异常',
+            title: res.data?.msg || '支付流程异常',
             icon: 'none',
           });
         }
@@ -154,8 +160,8 @@ Page({
         data: {
           appointmentId: orderId
         },
-        success: (res) => {
-          if (res.data.code === 1) {
+        success: (res: WechatMiniprogram.RequestSuccessCallbackResult<ApiResponse<any>>) => {
+          if (res?.data?.code === 1) {
             wx.showToast({
               title: '取消成功',
               icon: 'none',
@@ -163,7 +169,7 @@ Page({
             this.loadData(this.data.options);
           } else {
             wx.showToast({
-              title: res.data.msg || '取消失败',
+              title: res?.data?.msg || '取消失败',
               icon: 'none',
             });
           }

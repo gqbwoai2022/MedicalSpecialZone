@@ -1,8 +1,15 @@
-import { fullLogin } from '../../utils/util'; // 引入登录工具方法
+import { fullLogin } from '../../utils/util';
+
+interface ApiResponse<T = any> {
+  code: number;
+  msg?: string;
+  data: T;
+}
+
 Page({
   data: {
     userName: '未登录，点击登录',
-    isLoggedIn: false // 新增登录状态标识
+    isLoggedIn: false
   },
   // 页面显示时更新状态
   onShow() {
@@ -60,7 +67,7 @@ Page({
           code,
           scene: getApp().globalData.sceneParams
         },
-        success: (res) => {
+        success: (res: WechatMiniprogram.RequestSuccessCallbackResult<ApiResponse<any>>) => {
           if (res.data.code === 1) {
             wx.setStorageSync('token', res.data.data);
             resolve(true);
@@ -77,7 +84,7 @@ Page({
   // 点击"全部"按钮
   navigateToAllOrders() {
     wx.navigateTo({
-      url: '/pages/order/index?type=all&title=全部订单'
+      url: '/packageOrder/pages/order/index?type=all&title=全部订单'
     });
   },
 
@@ -85,23 +92,16 @@ Page({
   navigateToOrder(e: any) {
     const type = e.currentTarget.dataset.type;
     wx.navigateTo({
-      url: `/pages/order/index?type=${type}`
+      url: `/packageOrder/pages/order/index?type=${type}`
     });
   },
 
-  // 跳转到就诊人管理
-  navigateToPatientManage() {
-    wx.navigateTo({
-      url: '/pages/patient/manage'
-    });
-  },
-
-  // 跳转到客服
-  navigateToCustomerService() {
-    wx.navigateTo({
-      url: '/pages/service/index'
-    });
-  },
+  // // 跳转到就诊人管理
+  // navigateToPatientManage() {
+  //   wx.navigateTo({
+  //     url: '/packageOrder/pages/patient/manage'
+  //   });
+  // },
 
   // 分享功能
   navigateToShare() {
