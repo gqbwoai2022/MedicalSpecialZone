@@ -8,7 +8,6 @@ App({
       const scene = decodeURIComponent(options.query.scene);
       this.globalData.sceneParams = scene;
       wx.setStorageSync('sceneParams', scene);
-      console.log('原始场景值:', options.query.scene)
     }
   },
 })

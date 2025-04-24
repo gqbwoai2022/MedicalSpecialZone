@@ -9,7 +9,8 @@ interface ApiResponse<T = any> {
 Page({
   data: {
     userName: '未登录，点击登录',
-    isLoggedIn: false
+    isLoggedIn: false,
+    param: '123',
   },
   // 页面显示时更新状态
   onShow() {
@@ -80,7 +81,6 @@ Page({
     });
   },
 
-
   // 点击"全部"按钮
   navigateToAllOrders() {
     wx.navigateTo({
@@ -96,18 +96,13 @@ Page({
     });
   },
 
-  // // 跳转到就诊人管理
-  // navigateToPatientManage() {
-  //   wx.navigateTo({
-  //     url: '/packageOrder/pages/patient/manage'
-  //   });
-  // },
 
-  // 分享功能
-  navigateToShare() {
-    wx.showToast({
-      title: '转发功能已触发',
-      icon: 'none'
-    });
+  onShareAppMessage() {
+    const param = this.data.param;
+    // 接口获取scene
+    return {
+      title: '元合夕阳',
+      path: `/pages/home/index?scene=${param}`,
+    }
   }
 });

@@ -40,8 +40,8 @@
     <view class="menu-item">
       <button open-type="contact">问题与客服</button>
     </view>
-    <view class="menu-item" bindtap="navigateToShare">
-      <text>分享与转发</text>
+    <view class="menu-item">
+      <button open-type="share">分享与转发</button>
     </view>
   </view>
 </view>
