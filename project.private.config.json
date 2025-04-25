@@ -12,7 +12,7 @@
         {
           "name": "pages/home/index",
           "pathName": "pages/home/index",
-          "query": "scene=type%3Dhospital%26from%3Dtest&other=123",
+          "query": "scene=8be804203d454a0c9e427629da260aa6",
           "launchMode": "default",
           "scene": 1011
         }

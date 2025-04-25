@@ -10,7 +10,7 @@ Page({
   data: {
     userName: '未登录，点击登录',
     isLoggedIn: false,
-    param: '123',
+    scene: getApp().globalData.sceneParams,
   },
   // 页面显示时更新状态
   onShow() {
@@ -20,6 +20,26 @@ Page({
   updateLoginStatus() {
     const userInfo = wx.getStorageSync('userInfo');
     const isLoggedIn = !!userInfo;
+    if (!getApp().globalData.sceneParams) {
+      wx.request({
+        url: 'https://yuanhhealth.com/api/user/scene',
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/json',
+          'Authorization': wx.getStorageSync('token')
+        },
+        success: (res: any) => {
+          if (res.data.code === 1) {
+            this.setData({ scene: res.data.data });
+          } else {
+            wx.showToast({
+              title: '请重新登录',
+              icon: 'none'
+            });
+          }
+        },
+      });
+    }
     this.setData({
       isLoggedIn,
       userName: isLoggedIn ? userInfo.nickName : '未登录，点击登录'
@@ -98,11 +118,9 @@ Page({
 
 
   onShareAppMessage() {
-    const param = this.data.param;
-    // 接口获取scene
     return {
       title: '元合夕阳',
-      path: `/pages/home/index?scene=${param}`,
+      path: `/pages/home/index?scene=${this.data.scene}`,
     }
   }
 });
