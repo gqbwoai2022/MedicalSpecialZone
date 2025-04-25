@@ -20,13 +20,16 @@
       <!-- 第二行：订单状态 -->
       <view class="order-status">
         <view class="status-item" bindtap="navigateToOrder" data-type="unpaid">
-          <text>待支付</text>
+          <image class="status-icon" src="/assets/unpaid.png"></image>
+          <view>待支付</view>
         </view>
         <view class="status-item" bindtap="navigateToOrder" data-type="paid">
-          <text>已支付</text>
+          <image class="status-icon" src="/assets/paid.png"></image>
+          <view>已支付</view>
         </view>
         <view class="status-item" bindtap="navigateToOrder" data-type="cancelled">
-          <text>已取消</text>
+          <image class="status-icon" src="/assets/cancelled.png"></image>
+          <view>已取消</view>
         </view>
       </view>
     </view>
