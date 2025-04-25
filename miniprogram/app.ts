@@ -5,9 +5,8 @@ App({
   onLaunch(options) {
     // 解析二维码场景值
     if (options.query.scene) {
-      const scene = decodeURIComponent(options.query.scene);
-      this.globalData.sceneParams = scene;
-      wx.setStorageSync('sceneParams', scene);
+      this.globalData.sceneParams = options.query.scene;
+      wx.setStorageSync('sceneParams', options.query.scene);
     }
   },
 })
