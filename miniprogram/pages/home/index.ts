@@ -3,13 +3,16 @@ Page({
   data: {
     needAuth: false, // 是否需要显示授权按钮
     authLoading: false, // 授权按钮加载状态
-    videoUrl: "",       // 后端返回的视频地址
-    videoCover: "",     // 视频封面图
+    videoData: {
+      url: '',
+      cover: '',
+      loading: true
+    },
     isPlaying: false,   // 是否正在播放
   },
   async onLoad() {
-    this.fetchVideoData();
     await this.loginFlowController();
+    this.fetchVideoData();
   },
 
   // 核心登录控制器
@@ -97,33 +100,38 @@ Page({
       wx.hideLoading();
     }
   },
-  // 从后端获取视频信息
+
+  onVideoReady() {
+    this.setData({ 'videoData.loading': false })
+    wx.hideLoading()
+  },
+  onVideoLoading() {
+    wx.showLoading({ title: '缓冲中...' })
+  },
+
+  onVideoPlay() {
+    wx.reportAnalytics('video_play', {
+      video_id: 'homepage_main_video'
+    })
+    // 取消其他媒体的播放（如有）
+    wx.getBackgroundAudioManager().pause()
+  },
+
   fetchVideoData() {
-    wx.request({
-      url: "https://your-api.com/getVideo", // 替换为你的API
-      method: "GET",
-      success: (res: any) => {
-        console.log(res);
-        // this.setData({
-        //   videoUrl: res.data.videoUrl,
-        //   videoCover: res.data.videoCover,
-        // });
-      },
-      fail: () => {
-        wx.showToast({ title: "视频加载失败", icon: "none" });
-      },
+    this.setData({
+      videoData: {
+        url: 'https://cos.yuanhhealth.com/test.mp4',
+        cover: '',
+        loading: false,
+      }
     });
   },
-  // 视频开始播放
-  onVideoPlay(e: any) {
-    console.log(e);
-    this.setData({ isPlaying: true });
-  },
-  // 视频播放错误
+
   onVideoError(e: any) {
-    console.error("视频播放错误:", e.detail.errMsg);
-    wx.showToast({ title: "视频播放失败", icon: "none" });
+    console.error('播放错误:', e.detail.errMsg);
+    wx.showToast({ title: '播放失败，请重试', icon: 'none' });
   },
+
   handleMoreClick: function (e: any) {
     const type = e.currentTarget.dataset.type; // 获取卡片类型标识
     wx.navigateTo({

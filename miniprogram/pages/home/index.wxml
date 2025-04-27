@@ -1,10 +1,10 @@
 <navigation-bar title="首页" back="{{false}}" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y>
   <view class="videoContainer">
-    <video id="myVideo" src="{{videoUrl}}" controls="{{true}}" autoplay="{{true}}" loop="{{false}}" muted="{{false}}" poster="{{videoCover}}" bindplay="onVideoPlay" binderror="onVideoError" class="video-player">
+    <video id="mainVideo" src="{{videoData.url}}" controls poster="{{videoData.cover}}" muted="{{false}}" autoplay="{{false}}" bindplay="onVideoPlay" binderror="onVideoError" style="width: 100%; height: 400rpx;" object-fit="contain" class="video-player" enable-play-gesture custom-cache="{{false}}" bindloadedmetadata="onVideoReady" bindwaiting="onVideoLoading">
     </video>
   </view>
-  <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
+  <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="4000" circular="{{true}}">
     <swiper-item>
       <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo1.jpg" mode="aspectFill" />
     </swiper-item>
@@ -18,7 +18,7 @@
       <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo4.jpg" mode="aspectFill" />
     </swiper-item>
   </swiper>
-  <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
+  <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="4000" circular="{{true}}">
     <swiper-item>
       <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment1.jpg" mode="aspectFill" />
     </swiper-item>
@@ -124,12 +124,7 @@
   </view>
 </scroll-view>
 <view wx:if="{{needAuth}}" class="auth-container">
-  <button 
-    class="auth-button"
-    bindtap="handleUserAuth"
-    loading="{{authLoading}}"
-    hover-class="none"
-  >
+  <button class="auth-button" bindtap="handleUserAuth" loading="{{authLoading}}" hover-class="none">
     微信一键登录
   </button>
   <view class="auth-tip">请授权获取用户信息以继续</view>
