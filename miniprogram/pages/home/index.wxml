@@ -120,7 +120,43 @@
       <view class="title">先进技术</view>
       <view class="moreBtn" bindtap="handleMoreClick" data-type="technology">更多</view>
     </view>
-    <View class="serviceContainer">123</View>
+    <view class="tech-container">
+      <!-- 高血压 -->
+      <view class="tech-card">
+        <view class="tech-header">
+          <view class="tech-title">高血压治疗技术</view>
+        </view>
+        <view class="tech-content">
+          <view class="tech-item">✓ 100%治愈率</view>
+          <view class="tech-item">⏱ 7-10天疗程</view>
+          <view class="tech-item">💊 无需每日服药</view>
+        </view>
+      </view>
+
+      <!-- 高血脂 -->
+      <view class="tech-card">
+        <view class="tech-header">
+          <view class="tech-title">高血脂防治技术</view>
+        </view>
+        <view class="tech-content">
+          <view class="tech-item">✓ 92%无复发</view>
+          <view class="tech-item">⏱ 1-3个月疗程</view>
+          <view class="tech-item">🩺 中西医结合</view>
+        </view>
+      </view>
+
+      <!-- 肿瘤检测 -->
+      <view class="tech-card">
+        <view class="tech-header">
+          <view class="tech-title">肿瘤靶标检测</view>
+        </view>
+        <view class="tech-content">
+          <view class="tech-item">✓ 19种癌症筛查</view>
+          <view class="tech-item">🎯 100%精准</view>
+          <view class="tech-item">🌍 全球唯一技术</view>
+        </view>
+      </view>
+    </view>
   </view>
 </scroll-view>
 <view wx:if="{{needAuth}}" class="auth-container">
