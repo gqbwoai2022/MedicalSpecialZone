@@ -90,6 +90,7 @@ page {
 
       .serviceContainerItem {
         width: 33%;
+        font-size: 26rpx;
 
         .pic {
           width: 100%;
@@ -104,54 +105,73 @@ page {
     }
 
     .tech-container {
-      display: flex;
-      flex-direction: column;
-      gap: 16rpx;
+      display: grid;
+      gap: 20rpx;
     }
 
+    /* 单个技术卡片 */
     .tech-card {
-      background: #f8f9ff;
-      border-radius: 12rpx;
-      padding: 20rpx;
-      border-left: 6rpx solid #07c160;
-      margin-bottom: 20rpx;
-
-      &::last-child {
-        margin-bottom: 0;
-      }
+      background: #fff;
+      border-radius: 12px;
+      padding: 24rpx;
+      box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
     }
 
+    /* 卡片头部 */
     .tech-header {
       display: flex;
       align-items: center;
-      margin-bottom: 16rpx;
+      margin-bottom: 24rpx;
+      padding-bottom: 20rpx;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .tech-icon {
-      font-size: 40rpx;
-      margin-right: 16rpx;
+      width: 48rpx;
+      height: 48rpx;
+      background: #07C160;
+      border-radius: 8rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28rpx;
+      margin-right: 20rpx;
     }
 
     .tech-title {
       font-size: 32rpx;
       font-weight: 500;
-      color: #2d3436;
+      color: #2D3436;
     }
 
-    .tech-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12rpx;
+    /* 数据网格 */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200rpx, 1fr));
+      gap: 20rpx;
     }
 
     .tech-item {
-      background: #e3f5ff;
-      border-radius: 24rpx;
-      padding: 8rpx 16rpx;
-      font-size: 24rpx;
-      color: #0984e3;
+      background: #F8F9FA;
+      border-radius: 8rpx;
+      padding: 20rpx;
       display: flex;
+      flex-direction: column;
       align-items: center;
+    }
+
+    .tech-label {
+      font-size: 26rpx;
+      color: #7F8C93;
+      margin-bottom: 8rpx;
+    }
+
+    .tech-value {
+      font-size: 28rpx;
+      font-weight: 500;
+      color: #07C160;
+      text-align: center;
     }
   }
 }

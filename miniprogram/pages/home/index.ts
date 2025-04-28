@@ -121,7 +121,7 @@ Page({
     this.setData({
       videoData: {
         url: 'https://cos.yuanhhealth.com/test.mp4',
-        cover: '',
+        cover: 'https://cos.yuanhhealth.com/video_cocer.png',
         loading: false,
       }
     });

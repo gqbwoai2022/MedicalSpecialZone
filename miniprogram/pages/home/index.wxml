@@ -85,7 +85,7 @@
       </view>
       <view class="serviceContainerItem">
         <image lazy-load src="http://cos.yuanhhealth.com/hospital2.jpg" mode="aspectFit" class='pic' />
-        <view>瑞金医院</view>
+        <view>上海交通大学医学院附属瑞金医院</view>
       </view>
       <view class="serviceContainerItem">
         <image lazy-load src="http://cos.yuanhhealth.com/hospital3.jpg" mode="aspectFit" class='pic' />
@@ -126,10 +126,19 @@
         <view class="tech-header">
           <view class="tech-title">高血压治疗技术</view>
         </view>
-        <view class="tech-content">
-          <view class="tech-item">✓ 100%治愈率</view>
-          <view class="tech-item">⏱ 7-10天疗程</view>
-          <view class="tech-item">💊 无需每日服药</view>
+        <view class="tech-grid">
+          <view class="tech-item">
+            <text class="tech-label">治愈率</text>
+            <text class="tech-value">100%</text>
+          </view>
+          <view class="tech-item">
+            <text class="tech-label">疗程</text>
+            <text class="tech-value">7-10天</text>
+          </view>
+          <view class="tech-item">
+            <text class="tech-label">技术类型</text>
+            <text class="tech-value">中医临床独家</text>
+          </view>
         </view>
       </view>
 
@@ -138,10 +147,19 @@
         <view class="tech-header">
           <view class="tech-title">高血脂防治技术</view>
         </view>
-        <view class="tech-content">
-          <view class="tech-item">✓ 92%无复发</view>
-          <view class="tech-item">⏱ 1-3个月疗程</view>
-          <view class="tech-item">🩺 中西医结合</view>
+        <view class="tech-grid">
+          <view class="tech-item">
+            <text class="tech-label">无复发</text>
+            <text class="tech-value">92%</text>
+          </view>
+          <view class="tech-item">
+            <text class="tech-label">疗程</text>
+            <text class="tech-value">1-3个月</text>
+          </view>
+          <view class="tech-item">
+            <text class="tech-label">技术类型</text>
+            <text class="tech-value">中西医结合</text>
+          </view>
         </view>
       </view>
 
@@ -150,10 +168,19 @@
         <view class="tech-header">
           <view class="tech-title">肿瘤靶标检测</view>
         </view>
-        <view class="tech-content">
-          <view class="tech-item">✓ 19种癌症筛查</view>
-          <view class="tech-item">🎯 100%精准</view>
-          <view class="tech-item">🌍 全球唯一技术</view>
+        <view class="tech-grid">
+          <view class="tech-item">
+            <text class="tech-label">精准</text>
+            <text class="tech-value">100%</text>
+          </view>
+          <view class="tech-item">
+            <text class="tech-label">覆盖</text>
+            <text class="tech-value">19种癌症</text>
+          </view>
+          <view class="tech-item">
+            <text class="tech-label">技术类型</text>
+            <text class="tech-value">全球唯一</text>
+          </view>
         </view>
       </view>
     </view>

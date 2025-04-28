@@ -15,18 +15,22 @@
   <!-- 技术专用模板 -->
   <block wx:if="{{type === 'technology'}}">
     <view class="tech-card" wx:for="{{listData}}" wx:key="id">
+      <!-- 标题区 -->
       <view class="tech-header">
-        <view class="main-title">{{item.title}}</view>
+        <text class="main-title">{{item.title}}</text>
       </view>
 
+      <!-- 核心特点 -->
       <view class="tech-features">
-        <view class="feature-tag" wx:for="{{item.features}}" wx:key="*this">
-          {{item}}
+        <view class="feature-item" wx:for="{{item.features}}" wx:key="*this">
+          <view class="feature-dot"></view>
+          <text class="feature-text">{{item}}</text>
         </view>
       </view>
 
+      <!-- 治疗效果 -->
       <view class="tech-effect">
-        <view class="effect-icon">💡</view>
+        <view class="effect-label">核心疗效</view>
         <text class="effect-text">{{item.effect}}</text>
       </view>
     </view>

@@ -73,55 +73,70 @@ page {
     }
   }
 
-  /* 技术卡片专用样式 ✅ */
   .tech-card {
     background: #fff;
     border-radius: 8px;
-    padding: 20rpx;
-    margin-bottom: 20rpx;
+    padding: 20px;
+    margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
+  /* 标题样式（继承医院详情页） */
   .tech-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20rpx;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  .tech-icon {
-    font-size: 40rpx;
-    margin-right: 16rpx;
+  .main-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
   }
 
+  /* 特点列表（借鉴医院科室标签样式） */
   .tech-features {
+    margin-bottom: 18px;
+  }
+
+  .feature-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12rpx;
+    align-items: flex-start;
+    margin-bottom: 10px;
   }
 
-  .feature-tag {
-    background: #f0f7ff;
-    border-radius: 24rpx;
-    padding: 8rpx 16rpx;
-    font-size: 24rpx;
-    color: #1890ff;
+  .feature-dot {
+    width: 6px;
+    height: 6px;
+    background: #07C160;
+    border-radius: 50%;
+    margin: 8px 12px 0 0;
   }
 
+  .feature-text {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  /* 疗效展示（继承专家特长样式） */
   .tech-effect {
-    margin-top: 20rpx;
-    padding-top: 16rpx;
-    border-top: 1px solid #eee;
-    display: flex;
-    align-items: center;
+    padding: 12px;
+    background: #f8f8f8;
+    border-radius: 6px;
+  }
 
-    .effect-icon {
-      font-size: 32rpx;
-      margin-right: 8rpx;
-    }
+  .effect-label {
+    font-size: 14px;
+    color: #07C160;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
 
-    .effect-text {
-      color: #07c160;
-      font-weight: 500;
-    }
+  .effect-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
   }
 }
