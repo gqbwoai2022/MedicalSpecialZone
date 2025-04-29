@@ -21,15 +21,15 @@
       <view class="order-status">
         <view class="status-item" bindtap="navigateToOrder" data-type="unpaid">
           <image class="status-icon" src="/assets/unpaid.png"></image>
-          <view>待支付</view>
+          <view class="status-title">待支付</view>
         </view>
         <view class="status-item" bindtap="navigateToOrder" data-type="paid">
           <image class="status-icon" src="/assets/paid.png"></image>
-          <view>已支付</view>
+          <view class="status-title">已支付</view>
         </view>
         <view class="status-item" bindtap="navigateToOrder" data-type="cancelled">
           <image class="status-icon" src="/assets/cancelled.png"></image>
-          <view>已取消</view>
+          <view class="status-title">已取消</view>
         </view>
       </view>
     </view>

@@ -3,7 +3,7 @@
 <scroll-view class="detail-container" scroll-y>
   <!-- 图片区域（通用） -->
   <view class="image-container">
-    <image lazy-load class="main-image" src="{{detailData.image}}" mode="aspectFill" wx:if="{{detailData.image}}" />
+    <image lazy-load class="main-image" src="{{detailData.image}}" mode="aspectFit" wx:if="{{detailData.image}}" bindtap="previewImage" data-src="{{detailData.image}}" />
   </view>
 
   <!-- 标题（通用） -->

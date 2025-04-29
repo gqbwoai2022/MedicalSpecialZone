@@ -31,8 +31,7 @@ Page({
     this.setData({ navTitle: titles[type] || '详情列表' });
   },
 
-  // 加载对应数据
-  loadData(type: 'hospital' | 'expert' | 'technology') {
+  loadData(type: 'hospital' | 'expert') {
     const mockData = {
       'hospital': [
         {
@@ -199,64 +198,7 @@ Page({
         },
 
       ],
-      'technology': [
-        {
-          id: 1,
-          title: '高血压治疗技术',
-          features: [
-            '针对原发、继发性高血压',
-            '中医临床独家技术',
-            '100%治愈率',
-            '7-10天疗程'
-          ],
-          effect: '治疗后8-12小时血压恢复正常'
-        },
-        {
-          id: 2,
-          title: '高血脂防治技术',
-          features: [
-            '心梗/脑梗/脑出血防治',
-            '中西医结合技术',
-            '92%无复发',
-            '1-3个月疗程'
-          ],
-          effect: '1-3天症状减小'
-        },
-        {
-          id: 3,
-          title: '高血糖治疗技术',
-          features: [
-            '糖尿病针对性治疗',
-            '中西医结合技术',
-            '95%无复发',
-            '7-30天疗程'
-          ],
-          effect: '告别长期服药'
-        },
-        {
-          id: 4,
-          title: '肿瘤靶标检测技术',
-          features: [
-            '19种癌症精准筛查',
-            '中医独家技术',
-            '100%精准度',
-            '全球唯一方案'
-          ],
-          effect: '八项指标全面检测'
-        },
-        {
-          id: 5,
-          title: '心脑血管微循环技术',
-          features: [
-            '可视化实时检测',
-            '纳米机器人疗法',
-            '精准靶向治疗',
-            '创新代谢方案'
-          ],
-          effect: '突破传统检测局限'
-        }
-      ]
     };
     this.setData({ listData: mockData[type] || [] });
-  }
+  },
 });

@@ -121,7 +121,8 @@ Page({
     this.setData({
       videoData: {
         url: 'https://cos.yuanhhealth.com/test.mp4',
-        cover: 'https://cos.yuanhhealth.com/video_cocer.png',
+        cover: '',
+        // cover: 'https://cos.yuanhhealth.com/video_cocer.png',
         loading: false,
       }
     });
@@ -137,5 +138,17 @@ Page({
     wx.navigateTo({
       url: `/packageHome/pages/homeMore/index?type=${type}` // 传递类型参数
     });
+  },
+
+  previewImage(e: any) {
+    const src = e.currentTarget.dataset.src;
+    wx.previewImage({
+      current: src,
+      urls: [src],
+      fail: (err) => {
+        console.error('图片预览失败:', err)
+        wx.showToast({ title: '预览失败，请稍后重试', icon: 'none' })
+      }
+    })
   },
 })

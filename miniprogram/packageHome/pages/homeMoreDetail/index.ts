@@ -320,16 +320,6 @@ Page({
         },
 
       ],
-      technology: [
-        {
-          id: 1,
-          image: '',
-          title: '质子治疗系统',
-          desc: '...',
-          parameters: '误差<1mm，能量范围70-250MeV',
-          cases: '已治疗2000+肿瘤病例'
-        }
-      ]
     };
 
     const detail = mockData[type].find(item => item.id === id);
@@ -344,8 +334,19 @@ Page({
     const titles = {
       hospital: '合作医院',
       expert: '院士专家',
-      technology: '先进技术'
     };
     return titles[type];
-  }
+  },
+
+  previewImage(e: any) {
+    const src = e.currentTarget.dataset.src;
+    wx.previewImage({
+      current: src,
+      urls: [src],
+      fail: (err) => {
+        console.error('图片预览失败:', err)
+        wx.showToast({ title: '预览失败，请稍后重试', icon: 'none' })
+      }
+    })
+  },
 });
