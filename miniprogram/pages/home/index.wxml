@@ -1,236 +1,204 @@
-<navigation-bar title="首页" back="{{false}}" background="#FFF"></navigation-bar>
-<view class="search-container">
-  <view class="search-box">
-    <image class="search-icon" src="/assets/sousuo.png" />
-    <input class="search-input" placeholder="请输入" placeholder-class="placeholder-style" />
-    <view class="search-btn">搜索</view>
+<view class="page-container">
+
+  <image src="http://cos.yuanhhealth.com/background.png" mode="aspectFill" class="background-image"></image>
+
+  <view class="homeTitle">元合夕阳</view>
+
+  <view class="search-container">
+    <view class="search-box">
+      <image class="search-icon" src="/assets/sousuo.png" />
+      <input class="search-input" placeholder="请输入" placeholder-class="placeholder-style" bindinput="onSearchInput" bindconfirm="onSearchConfirm" />
+      <view class="search-btn" bindtap="onSearchConfirm">搜索</view>
+    </view>
   </view>
+
+  <scroll-view class="scrollarea" scroll-y>
+    <view class="videoContainer">
+      <video id="mainVideo" src="{{videoData.url}}" controls poster="{{videoData.cover}}" muted="{{false}}" autoplay="{{false}}" bindplay="onVideoPlay" binderror="onVideoError" style="width: 100%; height: 400rpx;" object-fit="contain" class="video-player" enable-play-gesture custom-cache="{{false}}" bindloadedmetadata="onVideoReady" bindwaiting="onVideoLoading">
+      </video>
+    </view>
+
+    <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="4000" circular="{{true}}">
+      <swiper-item>
+        <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo1.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo1.jpg" />
+      </swiper-item>
+      <swiper-item>
+        <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo2.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo2.jpg" />
+      </swiper-item>
+      <swiper-item>
+        <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo3.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo3.jpg" />
+      </swiper-item>
+      <swiper-item>
+        <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo4.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo4.jpg" />
+      </swiper-item>
+    </swiper>
+
+    <view class="card" bindtap="handleMoreClick" data-type="hospital">
+      <view class="cardTitleWithMore">
+        <view class="title">合作医院</view>
+      </view>
+      <view class="hospital-container">
+        <view class="hospital-item">
+          <image lazy-load src="http://cos.yuanhhealth.com/hospital1.jpg" mode="aspectFill" class='hospital-pic' />
+          <view class="hospital-name">中国人民解放军总医院海南医院</view>
+        </view>
+        <view class="hospital-item">
+          <image lazy-load src="http://cos.yuanhhealth.com/hospital2.jpg" mode="aspectFill" class='hospital-pic' />
+          <view class="hospital-name">上海交通大学医学院附属瑞金医院</view>
+        </view>
+        <view class="hospital-item">
+          <image lazy-load src="http://cos.yuanhhealth.com/hospital3.jpg" mode="aspectFill" class='hospital-pic' />
+          <view class="hospital-name">四川大学华西乐城医院</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card" bindtap="handleMoreClick" data-type="expert">
+      <view class="cardTitleWithMore">
+        <view class="title">院士专家</view>
+      </view>
+      <view class="serviceContainer">
+        <view class="serviceContainerItem">
+          <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/wangchen.jpg" mode="aspectFill" />
+          <view>王辰院士</view>
+        </view>
+        <view class="serviceContainerItem">
+          <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/ningguang.png" mode="aspectFill" />
+          <view>宁光院士</view>
+        </view>
+        <view class="serviceContainerItem">
+          <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/chenxiangmei.jpg" mode="aspectFill" />
+          <view>陈香美院士</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="cardTitleWithMore">
+        <view class="title">先进技术</view>
+      </view>
+      <view class="tech-card">
+        <view class="left">
+          <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxueya.png" mode="aspectFill" />
+        </view>
+        <view class="right">
+          <view class="firstLine">
+            <view class="firstLeft">
+              <view class="f1line">高血压</view>
+              <view class="f2line">
+                中医临床<text class="textRed">独家</text>技术
+              </view>
+              <view class="f3line">近万名成功案例</view>
+            </view>
+            <view class="firstRight">
+              <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+            </view>
+          </view>
+
+          <view class="secondLine">
+            <view>治疗周期<text class="fontBold">7-10</text>天</view>
+            <view>治疗后<text class="fontBold">8-12</text>小时血压恢复正常范围</view>
+          </view>
+
+          <view class="thirdLine">
+            <view class="t1Line">原发性高血压<text class="fontBold">100%</text>治愈</view>
+            <view class="t2Line">可保<text class='fontBold'>100%</text>无需每日服药</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="tech-card">
+        <view class="left">
+          <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxuezhi.png" mode="aspectFill" />
+        </view>
+        <view class="right">
+          <view class="firstLine">
+            <view class="firstLeft">
+              <view class="f1line">高血脂预防治疗</view>
+              <view class="f2line">
+                中西医结合<text class="textRed">独家</text>技术
+              </view>
+              <view class="f3line">近万名成功案例</view>
+              <view class="f3line">适应症患者1-3天见效</view>
+            </view>
+            <view class="firstRight">
+              <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+            </view>
+          </view>
+
+          <view class="secondLine">
+            <view>治疗周期<text class="fontBold">1-3个月</text></view>
+            <view>治疗后<text class="fontBold">8-12</text>小时血压恢复正常范围</view>
+          </view>
+
+          <view class="thirdLine">
+            <view class="t1Line"><text class="fontBold">92%</text>高治愈无复发 无需长期治疗</view>
+            <view class="t2Line">可保<text class='fontBold'>100%</text>无需每日服药</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="tech-card">
+        <view class="left">
+          <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxuetang.png" mode="aspectFill" />
+        </view>
+        <view class="right">
+          <view class="firstLine">
+            <view class="firstLeft">
+              <view class="f1line">高血糖治疗</view>
+              <view class="f2line">
+                中西医结合<text class="textRed">独家</text>技术
+              </view>
+              <view class="f3line">近万名成功案例</view>
+              <view class="f3line">针对糖尿病患病群体</view>
+            </view>
+            <view class="firstRight">
+              <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+            </view>
+          </view>
+
+          <view class="secondLine">
+            <view>治疗周期<text class="fontBold">7-30</text>天</view>
+          </view>
+
+          <view class="thirdLine">
+            <view class="t1Line"><text class="fontBold">95%</text>高治愈无复发 无需长期治疗</view>
+            <view class="t2Line">可保<text class='fontBold'>100%</text>无需每日服药</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="tech-card">
+        <view class="left">
+          <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/zhongliu.png" mode="aspectFill" />
+          <image lazy-load class="leftBottomImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+        </view>
+        <view class="right">
+          <view class="firstLine">
+            <view class="firstLeft">
+              <view class="f1line">常规肿瘤靶标多肽检测</view>
+              <view class="f2line">
+                19种常规肿瘤<text class="smallText">（食道癌、胃癌、\n肝癌、结直肠癌、胰腺癌、乳腺癌、\n宫颈癌、卵巢癌、前列腺癌、\n子宫内膜癌、肾癌、膀胱癌、\n黑色素癌、脑胶质癌、鼻咽癌、\n喉癌、甲状腺癌、非小细胞肺癌、\n小细胞肺癌)</text>
+              </view>
+            </view>
+          </view>
+
+          <view class="secondLine">
+            <view>靶向导入，适合大多数人群</view>
+          </view>
+
+          <view class="thirdLine">
+            <view class="t1Line"><text class="fontBold">100%</text>精准筛查</view>
+            <view class="t2Line">中医独家技术，全球唯一</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+  </scroll-view>
 </view>
-<scroll-view class="scrollarea" scroll-y>
-  <view class="videoContainer">
-    <video id="mainVideo" src="{{videoData.url}}" controls poster="{{videoData.cover}}" muted="{{false}}" autoplay="{{false}}" bindplay="onVideoPlay" binderror="onVideoError" style="width: 100%; height: 400rpx;" object-fit="contain" class="video-player" enable-play-gesture custom-cache="{{false}}" bindloadedmetadata="onVideoReady" bindwaiting="onVideoLoading">
-    </video>
-  </view>
-  <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="4000" circular="{{true}}">
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo1.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo1.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo2.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo2.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo3.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo3.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo4.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo4.jpg" />
-    </swiper-item>
-  </swiper>
-  <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="4000" circular="{{true}}">
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment1.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment1.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment2.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment2.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment3.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment3.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment4.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment4.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment5.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment5.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment6.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment6.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment7.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment7.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment8.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment8.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment9.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment9.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/equipment10.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/equipment10.jpg" />
-    </swiper-item>
-  </swiper>
 
-  <view class="card">
-    <view class="cardTitleWithMore">
-      <view class="title">合作医院</view>
-      <view class="moreBtn" bindtap="handleMoreClick" data-type="hospital">更多</view>
-    </view>
-    <View class="serviceContainer">
-      <view class="serviceContainerItem">
-        <image lazy-load src="http://cos.yuanhhealth.com/hospital1.jpg" mode="aspectFit" class='pic' bindtap="previewImage" data-src="http://cos.yuanhhealth.com/hospital1.jpg" />
-        <view>中国人民解放军总医院海南医院</view>
-      </view>
-      <view class="serviceContainerItem">
-        <image lazy-load src="http://cos.yuanhhealth.com/hospital2.jpg" mode="aspectFit" class='pic' bindtap="previewImage" data-src="http://cos.yuanhhealth.com/hospital2.jpg" />
-        <view>上海交通大学医学院附属瑞金医院</view>
-      </view>
-      <view class="serviceContainerItem">
-        <image lazy-load src="http://cos.yuanhhealth.com/hospital3.jpg" mode="aspectFit" class='pic' bindtap="previewImage" data-src="http://cos.yuanhhealth.com/hospital3.jpg" />
-        <view>四川大学华西乐城医院</view>
-      </view>
-    </View>
-  </view>
-
-  <view class="card">
-    <view class="cardTitleWithMore">
-      <view class="title">院士专家</view>
-      <view class="moreBtn" bindtap="handleMoreClick" data-type="expert">更多</view>
-    </view>
-    <View class="serviceContainer">
-      <view class="serviceContainerItem">
-        <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/wangchen.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/wangchen.jpg" />
-        <view>王晨院士</view>
-      </view>
-      <view class="serviceContainerItem">
-        <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/zhengshusen.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/zhengshusen.jpg" />
-        <view>郑树森院士</view>
-      </view>
-      <view class="serviceContainerItem">
-        <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/chenxiangmei.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/chenxiangmei.jpg" />
-        <view>陈香美院士</view>
-      </view>
-    </View>
-  </view>
-
-  <view class="card">
-    <view class="cardTitleWithMore">
-      <view class="title">先进技术</view>
-    </view>
-    <view class="tech-container">
-      <view class="tech-card">
-        <view class="tech-header">
-          <text class="main-title">高血压治疗技术</text>
-        </view>
-        <view class="tech-features">
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">针对原发、继发性高血压</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">中医临床独家技术（近万名成功案例）</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">原发性高血压100%治愈率</text>
-          </view>
-        </view>
-        <view class="tech-effect">
-          <view class="effect-label">核心疗效</view>
-          <text class="effect-text">治疗后8-12小时血压恢复正常范围</text>
-        </view>
-      </view>
-
-      <view class="tech-card">
-        <view class="tech-header">
-          <text class="main-title">高血脂防治技术</text>
-        </view>
-        <view class="tech-features">
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">针对心梗、脑梗、脑出血防治</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">中西医结合临床独家技术</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">92%高治愈无复发</text>
-          </view>
-        </view>
-        <view class="tech-effect">
-          <view class="effect-label">核心疗效</view>
-          <text class="effect-text">适应症患者1-3天症状减小</text>
-        </view>
-      </view>
-
-      <view class="tech-card">
-        <view class="tech-header">
-          <text class="main-title">肿瘤靶标检测</text>
-        </view>
-        <view class="tech-features">
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">19种常规肿瘤精准筛查</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">八项导入检测指标</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">全球唯一中医检测技术</text>
-          </view>
-        </view>
-        <view class="tech-effect">
-          <view class="effect-label">核心疗效</view>
-          <text class="effect-text">100%精准筛查率</text>
-        </view>
-      </view>
-
-      <view class="tech-card">
-        <view class="tech-header">
-          <text class="main-title">肿瘤靶标检测技术</text>
-        </view>
-        <view class="tech-features">
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">19种癌症精准筛查</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">中医独家技术</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">100%精准度</text>
-          </view>
-        </view>
-        <view class="tech-effect">
-          <view class="effect-label">核心疗效</view>
-          <text class="effect-text">八项指标全面检测</text>
-        </view>
-      </view>
-
-      <view class="tech-card">
-        <view class="tech-header">
-          <text class="main-title">心脑血管微循环技术</text>
-        </view>
-        <view class="tech-features">
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">可视化实时检测</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">纳米机器人疗法</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">精准靶向治疗</text>
-          </view>
-          <view class="feature-item">
-            <view class="feature-dot"></view>
-            <text class="feature-text">创新代谢方案</text>
-          </view>
-        </view>
-        <view class="tech-effect">
-          <view class="effect-label">核心疗效</view>
-          <text class="effect-text">突破传统检测局限</text>
-        </view>
-      </view>
-    </view>
-  </view>
-</scroll-view>
 <view wx:if="{{needAuth}}" class="auth-container">
   <button class="auth-button" bindtap="handleUserAuth" loading="{{authLoading}}" hover-class="none">
     微信一键登录

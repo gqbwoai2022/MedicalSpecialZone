@@ -1,4 +1,57 @@
 import { silentLogin, fullLogin } from '../../utils/util';
+const expertMap = [
+  { id: 1, name: '王辰院士' },
+  { id: 2, name: '宁光院士' },
+  { id: 3, name: '陈香美院士' },
+  { id: 4, name: '董家鸿院士' },
+  { id: 5, name: '葛均波院士' },
+  { id: 6, name: '顾瑛院士' },
+  { id: 7, name: '韩德民院士' },
+  { id: 8, name: '李兰娟院士' },
+  { id: 9, name: '李兆申院士' },
+  { id: 10, name: '郑树森院士' },
+  { id: 11, name: '陈霖院士' },
+  { id: 12, name: '王福生院士' },
+  { id: 13, name: '俞梦孙院士' },
+  { id: 14, name: '张志愿院士' },
+  { id: 15, name: '赵继宗院士' },
+  { id: 16, name: '王玉琢院士' },
+  { id: 17, name: '王振义院士' },
+  { id: 18, name: '陈赛娟院士' },
+  { id: 19, name: '陆道培院士' },
+  { id: 20, name: '王红阳院士' },
+  { id: 21, name: '毛军发院士' },
+  { id: 22, name: '张伯礼院士' },
+  { id: 23, name: '尚红院士' },
+  { id: 24, name: '田志刚院士' },
+  { id: 25, name: '韩雅玲院士' },
+  { id: 26, name: '郝希山院士' },
+  { id: 27, name: '谢立信院士' },
+  { id: 28, name: '姜保国院士' },
+  { id: 29, name: '刘良院士' },
+  { id: 30, name: '张英泽院士' },
+];
+
+const hospitalMap = [
+  { id: 1, name: '解放军' },
+  { id: 1, name: '301' },
+  { id: 1, name: '三零一' },
+  { id: 2, name: '交通大学' },
+  { id: 2, name: '交大' },
+  { id: 2, name: '瑞金' },
+  { id: 3, name: '四川大学' },
+  { id: 3, name: '川大' },
+  { id: 3, name: '华西' },
+  { id: 4, name: '博鳌超级' },
+  { id: 5, name: '干细胞' },
+  { id: 6, name: '中医药' },
+  { id: 7, name: '慈铭' },
+  { id: 8, name: '树兰' },
+  { id: 9, name: '恒大' },
+  { id: 10, name: '启研' },
+  { id: 10, name: '干细胞' },
+  { id: 10, name: '抗衰老' },
+];
 Page({
   data: {
     needAuth: false, // 是否需要显示授权按钮
@@ -9,6 +62,7 @@ Page({
       loading: true
     },
     isPlaying: false,   // 是否正在播放
+    searchValue: '',
   },
   async onLoad() {
     await this.loginFlowController();
@@ -150,5 +204,50 @@ Page({
         wx.showToast({ title: '预览失败，请稍后重试', icon: 'none' })
       }
     })
+  },
+
+  onSearchInput: function (e: any) {
+    this.setData({
+      searchValue: e.detail.value
+    });
+  },
+
+  onSearchConfirm: function () {
+    const searchValue = this.data.searchValue.trim();
+    if (!searchValue) return;
+
+    // 1. 先在医院数据中搜索
+    const hospitalResult = this.fuzzySearch(hospitalMap, searchValue);
+    if (hospitalResult) {
+      wx.navigateTo({
+        url: `/packageHome/pages/homeMoreDetail/index?id=${hospitalResult.id}&type=hospital`
+      });
+      return;
+    }
+
+    // 2. 如果在医院数据中没找到，再搜索专家数据
+    const expertResult = this.fuzzySearch(expertMap, searchValue);
+    if (expertResult) {
+      wx.navigateTo({
+        url: `/packageHome/pages/homeMoreDetail/index?id=${expertResult.id}&type=expert`
+      });
+      return;
+    }
+
+    // 3. 都没找到时不处理（或可以加个提示）
+    return;
+  },
+
+  // 模糊搜索方法
+  fuzzySearch: function (data: any, keyword: any) {
+    if (!keyword) return null;
+
+    // 转换为小写进行不区分大小写的匹配
+    const lowerKeyword = keyword.toLowerCase();
+
+    // 查找第一个匹配的项
+    return data.find((item: any) =>
+      item.name.toLowerCase().includes(lowerKeyword)
+    );
   },
 })

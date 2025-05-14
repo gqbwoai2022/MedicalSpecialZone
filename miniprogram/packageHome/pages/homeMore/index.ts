@@ -109,20 +109,20 @@ Page({
         {
           "id": 1,
           "image": "http://cos.yuanhhealth.com/wangchen.jpg",
-          "title": "王晨院士",
+          "title": "王辰院士",
           "desc": "北京协和医学院院校长，国家呼吸疾病临床研究中心主任，世界卫生组织戒烟与呼吸疾病预防合作中心主任"
         },
         {
           "id": 2,
-          "image": "http://cos.yuanhhealth.com/zhengshusen.jpg",
-          "title": "郑树森院士",
-          "desc": "中国工程院院士，法国国家医学科学院外籍院士，浙江大学外科学教授，博士生导师"
+          "image": "http://cos.yuanhhealth.com/ningguang.png",
+          "title": "宁光院士",
+          "desc": "国家代谢性疾病临床研究中心主任，国家卫计委内分泌代谢病重点实验室主任，上海交通大学医学院附属瑞金医院副院长"
         },
         {
           "id": 3,
           "image": "http://cos.yuanhhealth.com/chenxiangmei.jpg",
           "title": "陈香美院士",
-          "desc": "中国工程院院士，解放军总医院肾病专科医院院长，擅长疑难肾病诊治及延缓慢性肾病发展"
+          "desc": "中国工程院院士，肾脏病学专家，博士生导师，解放军肾脏病研究所所长暨重点实验室主任，擅长疑难肾病诊治及延缓慢性肾病发展"
         },
         {
           "id": 4,
@@ -158,13 +158,13 @@ Page({
           "id": 9,
           "image": "http://cos.yuanhhealth.com/lizhaoshen.jpg",
           "title": "李兆申院士",
-          "desc": "海军军医大学长海医院消化内科主任，国家消化病临床医学研究中心主任,中国医师协会常务理事、内镜医师分会会长、胰腺病学专委会主委"
+          "desc": "中国工程院院士，海军军医大学长海医院消化内科主任，国家消化病临床医学研究中心主任,中国医师协会常务理事、内镜医师分会会长、胰腺病学专委会主委"
         },
         {
           "id": 10,
-          "image": "http://cos.yuanhhealth.com/ningguang.png",
-          "title": "宁光院士",
-          "desc": "国家代谢性疾病临床研究中心主任，国家卫计委内分泌代谢病重点实验室主任，上海交通大学医学院附属瑞金医院副院长"
+          "image": "http://cos.yuanhhealth.com/zhengshusen.jpg",
+          "title": "郑树森院士",
+          "desc": "中国工程院院士，法国国家医学科学院外籍院士，浙江大学外科学教授，博士生导师"
         },
         {
           "id": 11,
@@ -196,7 +196,96 @@ Page({
           "title": "赵继宗院士",
           "desc": "中国科学院院士，首都医科大学附属北京天坛医院神经外科学系教授，博士生导师，主任医师"
         },
-
+        {
+          "id": 16,
+          "image": "http://cos.yuanhhealth.com/wangyuzhuo.jpg",
+          "title": "王玉琢院士",
+          "desc": "加拿大健康研究院院士，生物学博士，博士生导师，肿瘤个体化治疗领域的专家"
+        },
+        {
+          "id": 17,
+          "image": "http://cos.yuanhhealth.com/wangzhenyi.png",
+          "title": "王振义院士",
+          "desc": "中国工程院院士，内科血液学专家，医学家，医学教育家，法国科学院外籍院士"
+        },
+        {
+          "id": 18,
+          "image": "http://cos.yuanhhealth.com/chensaijuan.jpg",
+          "title": "陈赛娟院士",
+          "desc": "中国工程院院士，发展中国家科学院院士，上海交通大学医学基因组学国家重点实验室主任"
+        },
+        {
+          "id": 19,
+          "image": "http://cos.yuanhhealth.com/ludaopei.jpg",
+          "title": "陆道培院士",
+          "desc": "中国工程院院士，北京大学医学部学术委员会委员，北京大学血液病国家重点学科首席专家"
+        },
+        {
+          "id": 20,
+          "image": "http://cos.yuanhhealth.com/wanghongyang.jpg",
+          "title": "王红阳院士",
+          "desc": "中国工程院院士，发展中国家科学院院士，少将军衔，教授，主任医师，博导，医学与肿瘤分子生物学专家。 国家肝癌科学中心始创主任"
+        },
+        {
+          "id": 21,
+          "image": "http://cos.yuanhhealth.com/maojunfa.jpg",
+          "title": "毛军发院士",
+          "desc": "中国科学院院士，电磁场与微波技术专家，深圳大学校长，国务院学位委员会学科评议组成员"
+        },
+        {
+          "id": 22,
+          "image": "http://cos.yuanhhealth.com/zhangboli.jpg",
+          "title": "张伯礼院士",
+          "desc": "中国工程院院士、医药卫生学部主任 ，国医大师，中国医学科学院学部委员"
+        },
+        {
+          "id": 23,
+          "image": "http://cos.yuanhhealth.com/shanghong.png",
+          "title": "尚红院士",
+          "desc": "中国工程院院士，中国医科大学附属第一医院院长，国家医学检验临床医学研究中心主任"
+        },
+        {
+          "id": 24,
+          "image": "http://cos.yuanhhealth.com/tianzhigang.jpg",
+          "title": "田志刚院士",
+          "desc": "中国工程院院士、欧洲人文和自然科学院院士，中国科学技术大学生命科学学院教授"
+        },
+        {
+          "id": 25,
+          "image": "http://cos.yuanhhealth.com/hanyaling.jpg",
+          "title": "韩雅玲院士",
+          "desc": "中国工程院院士，中国人民解放军沈阳军区总医院副院长兼全军心血管病研究所所长"
+        },
+        {
+          "id": 26,
+          "image": "http://cos.yuanhhealth.com/haoxishan.jpg",
+          "title": "郝希山院士",
+          "desc": "中国工程院院士，中国医学科学院学部委员，天津医科大学博士研究生导师"
+        },
+        {
+          "id": 27,
+          "image": "http://cos.yuanhhealth.com/xielixin.jpg",
+          "title": "谢立信院士",
+          "desc": "中国工程院院士，博士生导师，山东省眼科研究所名誉所长、青岛眼科医院院长"
+        },
+        {
+          "id": 28,
+          "image": "http://cos.yuanhhealth.com/jiangbaoguo.png",
+          "title": "姜保国院士",
+          "desc": "中国工程院院士，中国中医科学院学部委员，北京大学人民医院教授、博士生导师"
+        },
+        {
+          "id": 29,
+          "image": "http://cos.yuanhhealth.com/liuliang.jpg",
+          "title": "刘良院士",
+          "desc": "中国工程院院士，澳门科技大学第三任校长、荣誉校长，中医证候全国重点实验室主任"
+        },
+        {
+          "id": 30,
+          "image": "http://cos.yuanhhealth.com/zhangyingze.jpg",
+          "title": "张英泽院士",
+          "desc": "中国工程院院士，河北医科大学教授、主任医师、博士生导师"
+        },
       ],
     };
     this.setData({ listData: mockData[type] || [] });

@@ -4,26 +4,62 @@ page {
   flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 32rpx;
+  background-color: #f5f5f5;
+}
+
+.homeTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 100rpx;
+  margin-left: 16px;
+  margin-bottom: 20px;
+}
+
+.page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  width: 100%;
+  height: 26%;
+  z-index: -1;
+}
+
+.background-image::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 26%;
+  /* 渐变区域高度 */
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.9) 80%);
 }
 
 .search-container {
-  padding: 20rpx;
-  background-color: #f5f5f5;
+  padding: 0 16px;
+  margin-bottom: 27px;
 
   .search-box {
+    border: 1px solid #E0FF9E;
     display: flex;
     align-items: center;
-    height: 92rpx;
+    height: 24px;
     background: #fff;
-    border: 1rpx solid #e5e5e5;
-    border-radius: 40rpx;
-    padding: 0 20rpx;
+    border-radius: 88px;
+    padding: 14px 23px;
   }
 
   .search-icon {
-    width: 42rpx;
-    height: 42rpx;
-    margin-right: 16rpx;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
   }
 
   .search-input {
@@ -35,8 +71,8 @@ page {
   }
 
   .placeholder-style {
-    color: #999;
-    font-size: 32rpx;
+    color: #999d9e;
+    font-size: 15px;
   }
 
   .search-btn {
@@ -51,16 +87,16 @@ page {
 }
 
 .scrollarea {
-  background-color: #f5f5f5;
-  flex: 1;
   width: calc(100% - 28px);
+  height: calc(100% - 190px);
   overflow-y: hidden;
   padding: 6px 14px;
 
   .videoContainer {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 
     .video-player {
+      border-radius: 16px;
       width: 100%;
       height: 100%;
     }
@@ -68,21 +104,19 @@ page {
 
   .swiperContainer {
     width: 100%;
-    height: 200px;
-    margin-bottom: 30px;
+    height: 180px;
+    margin-bottom: 34px;
 
     .swiperItemPic {
+      border-radius: 16px;
       width: 100%;
-      height: 200px;
+      height: 180px;
     }
   }
 
   .card {
-    width: calc(100% - 24px);
-    border-radius: 12px;
-    background-color: #ffffff;
-    padding: 16px 12px;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 40px;
 
     .cardTitle {
       font-size: 36rpx;
@@ -114,14 +148,8 @@ page {
       margin-bottom: 20px;
 
       .title {
-        font-size: 30rpx;
+        font-size: 20px;
         font-weight: 600;
-        ;
-      }
-
-      .moreBtn {
-        font-size: 30rpx;
-        color: gray;
       }
     }
 
@@ -131,8 +159,9 @@ page {
       justify-content: space-between;
 
       .serviceContainerItem {
-        width: 33%;
+        width: 30%;
         font-size: 26rpx;
+        text-align: center;
 
         .pic {
           width: 100%;
@@ -142,76 +171,158 @@ page {
         .expertImg {
           width: 100%;
           height: 140px;
+          border-radius: 8px;
         }
       }
     }
 
-    .tech-container {
-      padding: 0 8px;
-    }
-
     .tech-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .tech-header {
-      margin-bottom: 12px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .main-title {
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .tech-features {
-      margin-bottom: 12px;
-    }
-
-    .feature-item {
+      width: calc(100% - 24px);
+      border-radius: 16px;
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 8px;
-    }
-
-    .feature-dot {
-      width: 6px;
-      height: 6px;
-      background: #07C160;
-      border-radius: 50%;
-      margin: 8px 12px 0 0;
-    }
-
-    .feature-text {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.4;
-      flex: 1;
-    }
-
-    .tech-effect {
+      justify-content: space-between;
       padding: 12px;
-      background: #f8f8f8;
-      border-radius: 6px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 20px 0 rgba(157, 157, 157, 0.26);
+      margin-bottom: 20px;
+
+      .left {
+        .leftImg {
+          width: 140px;
+          height: 185px;
+          border-radius: 10px;
+          margin-right: 8px;
+        }
+
+        .leftBottomImg {
+          width: 75px;
+          height: 75px;
+          z-index: 1;
+          position: relative;
+        }
+      }
+
+      .right {
+        flex-shrink: 0;
+        .firstLine {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 12px;
+
+          .firstLeft {
+            flex: 1;
+            flex-shrink: 0;
+
+            .f1line {
+              font-size: 17px;
+              font-weight: 600;
+              color: #333;
+            }
+
+            .f2line {
+              font-size: 15px;
+              font-weight: 500;
+              color: #4d4d4d;
+
+              .textRed {
+                color: #D3564A;
+              }
+
+              .smallText {
+                font-weight: 400;
+                font-size: 12px;
+                color: #666;
+                white-space: pre-wrap;
+              }
+            }
+
+            .f3line {
+              font-size: 12px;
+              font-weight: 400;
+              color: #D3564A;
+            }
+
+          }
+
+          .firstRight {
+            width: 48px;
+            height: 48px;
+
+            .rightImg {
+              width: 48px;
+              height: 48px;
+            }
+          }
+        }
+
+        .secondLine {
+          color: #666666;
+          font-size: 12px;
+          line-height: 19px;
+          margin-bottom: 12px;
+
+          .fontBold {
+            font-weight: 500;
+          }
+        }
+
+        .thirdLine {
+
+          .t1Line,
+          .t2Line {
+            border-radius: 4px;
+            padding-left: 4px;
+            background-color: #FCF6EA;
+            font-size: 12px;
+            font-weight: 500;
+            color: #8A7140;
+            height: 22px;
+            line-height: 22px;
+          }
+
+          .t1Line {
+            margin-bottom: 6px;
+          }
+
+          .fontBold {
+            font-size: 16px;
+            color: #EB5F08;
+          }
+
+        }
+      }
     }
 
-    .effect-label {
-      font-size: 13px;
-      color: #07C160;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
+  }
 
-    .effect-text {
-      font-size: 14px;
-      color: #333;
-      line-height: 1.4;
-    }
+  .hospital-container {
+    width: 100%;
+  }
+
+  .hospital-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(217, 217, 217, 0.2);
+    /* d9d9d9 透明度10% */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .hospital-pic {
+    width: 120px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 12px;
+  }
+
+  .hospital-name {
+    flex: 1;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: right;
+    word-break: break-all;
   }
 }
 
