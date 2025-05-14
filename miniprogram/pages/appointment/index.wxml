@@ -21,7 +21,6 @@
 
       <view class="attention">
         <view class="title">注意事项：</view>
-        <view class="subTitle">此服务包含挂号业务</view>
         <view class="subTitle">以上各选项类别只可选择其中一个</view>
       </view>
 

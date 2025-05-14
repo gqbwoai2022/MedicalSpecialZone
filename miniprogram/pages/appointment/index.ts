@@ -66,9 +66,10 @@ Page({
       { id: 30, name: '张英泽院士' },
     ],
     techList: [
-      { id: 1, name: 'AI 辅助诊断' },
-      { id: 2, name: '微创手术机器人' },
-      { id: 3, name: '3D 打印假体' }
+      { id: 1, name: '高血压治疗' },
+      { id: 2, name: '高血脂预防及治疗' },
+      { id: 3, name: '高血糖治疗' },
+      { id: 3, name: '常规肿瘤精准早筛' },
     ],
     patientName: '',       // 就诊人姓名
     visitTime: '',         // 就诊时间

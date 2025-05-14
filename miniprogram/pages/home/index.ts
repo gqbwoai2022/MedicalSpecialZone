@@ -63,14 +63,26 @@ Page({
     },
     isPlaying: false,   // 是否正在播放
     searchValue: '',
+    swiperImages: [
+      "http://cos.yuanhhealth.com/lunbo1.jpg",
+      "http://cos.yuanhhealth.com/lunbo2.jpg",
+      "http://cos.yuanhhealth.com/lunbo3.jpg",
+      "http://cos.yuanhhealth.com/lunbo4.jpg"
+    ]
   },
   async onLoad() {
+    wx.removeStorage({ key: 'userInfo' });
+    wx.clearStorageSync();
     await this.loginFlowController();
     this.fetchVideoData();
   },
 
   // 核心登录控制器
   async loginFlowController() {
+    console.log('---加载页needAuth');
+    console.log(this.data.needAuth);
+    console.log('---jiazai this.checkAuthValid()');
+    console.log(this.checkAuthValid())
     if (this.checkAuthValid()) return;
 
     try {
@@ -80,13 +92,25 @@ Page({
       console.log('静默登录失败:', silentError);
     }
     if (!this.data.needAuth) {
+      console.log('---1jiazaizhong needAuth');
+      console.log(this.data.needAuth);
       this.setData({ needAuth: true });
     }
   },
 
   // 检查授权有效性（宽松校验）
   checkAuthValid(): boolean {
-    return !!wx.getStorageSync('token') && !!wx.getStorageSync('userInfo');
+    const tokenValid = !!wx.getStorageSync('token');
+    let userInfoValid: any = false;
+
+    // 增加实时校验
+    wx.getSetting({
+      success: (res) => {
+        userInfoValid = res.authSetting['scope.userInfo'];
+        this.setData({ needAuth: !(tokenValid && userInfoValid) })
+      }
+    })
+    return tokenValid && userInfoValid;
   },
 
   // 静默登录流程
@@ -96,11 +120,15 @@ Page({
       await this.callLoginAPI(code, getApp().globalData.sceneParams);
 
       // 关键判断：静默登录不包含用户信息
+      console.log('----executeSilentLogin userInfo');
+      console.log(wx.getStorageSync('userInfo'))
       if (!wx.getStorageSync('userInfo')) {
         this.setData({ needAuth: true });
         throw new Error('需要用户授权');
       }
     } catch (error) {
+      wx.removeStorageSync('token');
+      this.setData({ needAuth: true });
       throw new Error(`静默登录失败: ${error.message}`);
     }
   },
@@ -143,6 +171,18 @@ Page({
       wx.showLoading({ title: '登录成功' });
       this.setData({ needAuth: false });
     } catch (error) {
+      if (error.errMsg.includes('deny')) {
+        wx.showModal({
+          title: '授权恢复',
+          content: '请长按小程序图标→「设置」→「位置信息」选择「使用小程序时允许」',
+          confirmText: '前往设置',
+          success: () => {
+            wx.openSetting({
+              withSubscriptions: true // iOS17.6新增参数
+            });
+          }
+        })
+      }
       wx.showToast({
         title: error.message.includes('deny')
           ? '您拒绝了授权'
@@ -195,15 +235,11 @@ Page({
   },
 
   previewImage(e: any) {
-    const src = e.currentTarget.dataset.src;
-    wx.previewImage({
-      current: src,
-      urls: [src],
-      fail: (err) => {
-        console.error('图片预览失败:', err)
-        wx.showToast({ title: '预览失败，请稍后重试', icon: 'none' })
-      }
-    })
+    const currentIndex = e.currentTarget.dataset.index;
+    const urls = this.data.swiperImages;
+
+    wx.previewImage({ current: urls[currentIndex], urls });
+
   },
 
   onSearchInput: function (e: any) {

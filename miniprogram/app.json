@@ -58,5 +58,10 @@
     "navigationStyle": "custom",
     "enablePullDownRefresh": false
   },
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.userInfo": {
+      "desc": "用于完善用户资料和个性化服务"
+    }
+  }
 }
