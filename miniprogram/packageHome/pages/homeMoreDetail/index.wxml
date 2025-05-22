@@ -26,7 +26,7 @@
       <!-- 医院类型保持原样 -->
       <view class="section">
         <view class="section-title">详细介绍</view>
-        <view class="section-content">{{detailData.desc}}</view>
+        <text class="section-content">{{detailData.desc}}</text>
       </view>
     </block>
 

@@ -135,16 +135,6 @@ Page({
     this.setData({ showModal: false });
   },
 
-  // 重新选择
-  handleReset() {
-    this.setData({
-      selectedType: '',
-      selectedHospital: '',
-      selectedExpert: '',
-      selectedTech: ''
-    });
-  },
-
   handleInputChange(e: any) {
     const field = e.currentTarget.dataset.field;
     this.setData({

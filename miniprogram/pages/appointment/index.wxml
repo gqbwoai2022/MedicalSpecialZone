@@ -17,13 +17,14 @@
           <text class="placeholder">{{selectedTech || '请选择 >'}}</text>
         </view>
       </view>
-      <view class="reset-btn" bindtap="handleReset">重新选择</view>
 
       <view class="attention">
         <view class="title">注意事项：</view>
         <view class="subTitle">以上各选项类别只可选择其中一个</view>
       </view>
+    </view>
 
+    <view class="section">
       <view class="section2">
         <view class="title">就诊人信息</view>
 
@@ -52,7 +53,7 @@
     </view>
 
     <view class="extra">
-      <view class="title">特殊要求</view>
+      <view class="title">其他要求</view>
       <textarea placeholder="请输入其他服务要求" value="{{specialRequest}}" bindinput="handleSpecialRequestChange" class="textarea" auto-height="{{false}}" maxlength="200" show-count="{{true}}" />
     </view>
 

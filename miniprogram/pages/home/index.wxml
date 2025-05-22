@@ -84,11 +84,11 @@
         <view class="right">
           <view class="firstLine">
             <view class="firstLeft">
-              <view class="f1line">高血压</view>
+              <view class="f1line">高血压治疗</view>
               <view class="f2line">
                 中医临床<text class="textRed">独家</text>技术
               </view>
-              <view class="f3line">近万名成功案例</view>
+              <view class="f3line">针对原发、继发性高血压等群体</view>
             </view>
             <view class="firstRight">
               <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
@@ -102,7 +102,6 @@
 
           <view class="thirdLine">
             <view class="t1Line">原发性高血压<text class="fontBold">100%</text>治愈</view>
-            <view class="t2Line">可保<text class='fontBold'>100%</text>无需每日服药</view>
           </view>
         </view>
       </view>
@@ -116,9 +115,10 @@
             <view class="firstLeft">
               <view class="f1line">高血脂预防治疗</view>
               <view class="f2line">
-                中西医结合<text class="textRed">独家</text>技术
+                中西医临床<text class="textRed">独家</text>技术
               </view>
               <view class="f3line">近万名成功案例</view>
+              <view class="f3line">针对心梗，脑梗，脑出血等群体</view>
               <view class="f3line">适应症患者1-3天见效</view>
             </view>
             <view class="firstRight">
@@ -128,12 +128,11 @@
 
           <view class="secondLine">
             <view>治疗周期<text class="fontBold">1-3个月</text></view>
-            <view>治疗后<text class="fontBold">8-12</text>小时血压恢复正常范围</view>
           </view>
 
           <view class="thirdLine">
-            <view class="t1Line"><text class="fontBold">92%</text>高治愈无复发 无需长期治疗</view>
-            <view class="t2Line">可保<text class='fontBold'>100%</text>无需每日服药</view>
+            <view class="t1Line">高治愈无复发 治愈率超<text class="fontBold">90%</text></view>
+            <view class="t2Line"><text class='fontBold'>100%</text>无需每日服药</view>
           </view>
         </view>
       </view>
@@ -146,10 +145,7 @@
           <view class="firstLine">
             <view class="firstLeft">
               <view class="f1line">高血糖治疗</view>
-              <!-- <view class="f2line">
-                中西医结合<text class="textRed">独家</text>技术
-              </view> -->
-              <view class="f3line marg8">针对糖尿病，通风等群体</view>
+              <view class="f3line marg8">针对糖尿病，痛风等群体</view>
             </view>
             <view class="firstRight">
               <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
@@ -162,7 +158,7 @@
 
           <view class="thirdLine">
             <view class="t1Line">高治愈无复发 治愈率超<text class="fontBold">95%</text></view>
-            <view class="t2Line">可保<text class='fontBold'>100%</text>无需每日服药</view>
+            <view class="t2Line"><text class='fontBold'>100%</text>无需每日服药</view>
           </view>
         </view>
       </view>
@@ -175,17 +171,19 @@
         <view class="right">
           <view class="firstLine">
             <view class="firstLeft">
-              <view class="f1line">常规肿瘤靶标多肽检测</view>
-              <view class="f3line">靶标多肽检测</view>
+              <view class="f1line">常规肿瘤精准早筛</view>
+              <view class="f2line">靶标多肽检测</view>
+              <view class="f3line">19种常规肿瘤</view>
               <view class="f2line">
-                19种常规肿瘤<text class="smallText">（食道癌、胃癌、\n肝癌、结直肠癌、胰腺癌、乳腺癌、\n宫颈癌、卵巢癌、前列腺癌、\n子宫内膜癌、肾癌、膀胱癌、\n黑色素癌、脑胶质癌、鼻咽癌、\n喉癌、甲状腺癌、非小细胞肺癌、\n小细胞肺癌)</text>
+                <text class="smallText">食道癌、胃癌、肝癌、小细胞/非小细胞肺癌、结/直肠癌、胰腺癌、乳腺癌、宫颈癌、卵巢癌、前列腺癌、子宫内膜癌、肾癌、膀胱癌、黑色素癌、脑胶质癌、鼻咽癌、喉癌、甲状腺癌</text>
               </view>
             </view>
           </view>
 
           <view class="thirdLine">
             <view class="t1Line"><text class="fontBold">100%</text>精准筛查</view>
-            <view class="t2Line">中医独家技术，全球唯一</view>
+            <view class="t1Line">遭遇常规检测<text class="fontBold">3-5</text>年</view>
+            <view class="t2Line">独家技术，全球唯一</view>
           </view>
         </view>
       </view>
