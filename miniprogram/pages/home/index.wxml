@@ -78,114 +78,121 @@
         <view class="title">先进技术</view>
       </view>
       <view class="tech-card">
-        <view class="left">
-          <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxueya.png" mode="aspectFill" />
-        </view>
-        <view class="right">
-          <view class="firstLine">
-            <view class="firstLeft">
-              <view class="f1line">高血压治疗</view>
-              <view class="f2line">
-                中医临床<text class="textRed">独家</text>技术
+        <view class="flexContainer">
+          <view class="left">
+            <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxueya.png" mode="aspectFill" />
+          </view>
+          <view class="right">
+            <view class="firstLine">
+              <view class="firstLeft">
+                <view class="f1line mb20">高血压特色治疗</view>
+                <view class="f2line mb16">
+                  中医临床<text class="textRed">独家</text>技术
+                </view>
+                <view class="f3line">针对原发、继发性高血压群体</view>
               </view>
-              <view class="f3line">针对原发、继发性高血压等群体</view>
+              <view class="firstRight">
+                <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+              </view>
             </view>
-            <view class="firstRight">
-              <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+
+            <view class="secondLine mb28">
+              <view>治疗周期<text class="fontBold">7-10</text>天</view>
             </view>
-          </view>
 
-          <view class="secondLine">
-            <view>治疗周期<text class="fontBold">7-10</text>天</view>
-            <view>治疗后<text class="fontBold">8-12</text>小时血压恢复正常范围</view>
-          </view>
-
-          <view class="thirdLine">
-            <view class="t1Line">原发性高血压<text class="fontBold">100%</text>治愈</view>
+            <view class="thirdLine">
+              <view class="t1Line">微创手术，<text class="fontBold">高</text>治愈率</view>
+            </view>
           </view>
         </view>
       </view>
 
       <view class="tech-card">
-        <view class="left">
-          <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxuezhi.png" mode="aspectFill" />
-        </view>
-        <view class="right">
-          <view class="firstLine">
-            <view class="firstLeft">
-              <view class="f1line">高血脂预防治疗</view>
-              <view class="f2line">
-                中西医临床<text class="textRed">独家</text>技术
+        <view class="flexContainer">
+          <view class="left">
+            <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxuezhi.png" mode="aspectFill" />
+          </view>
+          <view class="right">
+            <view class="firstLine">
+              <view class="firstLeft">
+                <view class="f1line mb20">心脑血管预防及特色诊疗</view>
+                <view class="f2line mb16">
+                  中西医临床<text class="textRed">独家</text>技术
+                </view>
+                <view class="f3line">针对心梗，脑梗，脑卒中等群体</view>
               </view>
-              <view class="f3line">近万名成功案例</view>
-              <view class="f3line">针对心梗，脑梗，脑出血等群体</view>
-              <view class="f3line">适应症患者1-3天见效</view>
+              <view class="firstRight">
+                <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+              </view>
             </view>
-            <view class="firstRight">
-              <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+
+            <view class="secondLine">
+              <view>治疗周期<text class="fontBold">1-3个</text>月</view>
             </view>
-          </view>
 
-          <view class="secondLine">
-            <view>治疗周期<text class="fontBold">1-3个月</text></view>
-          </view>
-
-          <view class="thirdLine">
-            <view class="t1Line">高治愈无复发 治愈率超<text class="fontBold">90%</text></view>
-            <view class="t2Line"><text class='fontBold'>100%</text>无需每日服药</view>
+            <view class="thirdLine">
+              <view class="t1Line">超微创手术，<text class="fontBold">高</text>治愈率</view>
+            </view>
           </view>
         </view>
       </view>
 
       <view class="tech-card">
-        <view class="left">
-          <image lazy-load class="leftImg1" src="http://cos.yuanhhealth.com/gaoxuetang.png" mode="aspectFill" />
-        </view>
-        <view class="right">
-          <view class="firstLine">
-            <view class="firstLeft">
-              <view class="f1line">高血糖治疗</view>
-              <view class="f3line marg8">针对糖尿病，痛风等群体</view>
-            </view>
-            <view class="firstRight">
-              <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
-            </view>
+        <view class="flexContainer">
+          <view class="left">
+            <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/zhongliu.png" mode="aspectFill" />
+            <image lazy-load class="leftBottomImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
           </view>
+          <view class="right">
+            <view class="firstLine">
+              <view class="firstLeft">
+                <view class="f1line mb8">常规肿瘤精准早筛</view>
+                <view class="f2line mb8">靶标多肽检测</view>
+                <view class="f3line">19种常规肿瘤</view>
+                <view class="f2line mb8">
+                  <text class="smallText">食道癌、胃癌、肝癌、小细胞/非小细胞肺癌、结/直肠癌、胰腺癌、乳腺癌、宫颈癌、卵巢癌、前列腺癌、子宫内膜癌、肾癌、膀胱癌、黑色素癌、脑胶质癌、鼻咽癌、喉癌、甲状腺癌</text>
+                </view>
+              </view>
+            </view>
 
-          <view class="secondLine">
-            <view>治疗周期<text class="fontBold">7-30</text>天</view>
-          </view>
-
-          <view class="thirdLine">
-            <view class="t1Line">高治愈无复发 治愈率超<text class="fontBold">95%</text></view>
-            <view class="t2Line"><text class='fontBold'>100%</text>无需每日服药</view>
+            <view class="thirdLine">
+              <view class="t1Line"><text class="fontBold">100%</text>精准筛查</view>
+              <view class="t1Line">遭遇常规检测<text class="fontBold">3-5</text>年</view>
+              <view class="t2Line">独家技术，全球唯一</view>
+            </view>
           </view>
         </view>
       </view>
 
       <view class="tech-card">
-        <view class="left">
-          <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/zhongliu.png" mode="aspectFill" />
-          <image lazy-load class="leftBottomImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
-        </view>
-        <view class="right">
-          <view class="firstLine">
-            <view class="firstLeft">
-              <view class="f1line">常规肿瘤精准早筛</view>
-              <view class="f2line">靶标多肽检测</view>
-              <view class="f3line">19种常规肿瘤</view>
-              <view class="f2line">
-                <text class="smallText">食道癌、胃癌、肝癌、小细胞/非小细胞肺癌、结/直肠癌、胰腺癌、乳腺癌、宫颈癌、卵巢癌、前列腺癌、子宫内膜癌、肾癌、膀胱癌、黑色素癌、脑胶质癌、鼻咽癌、喉癌、甲状腺癌</text>
-              </view>
-            </view>
+        <view class="flexContainer">
+          <view class="left">
+            <image lazy-load class="leftImg mb28" src="http://cos.yuanhhealth.com/gaoxuetang.png" mode="aspectFill" />
+            <image lazy-load class="leftBottomImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
           </view>
 
-          <view class="thirdLine">
-            <view class="t1Line"><text class="fontBold">100%</text>精准筛查</view>
-            <view class="t1Line">遭遇常规检测<text class="fontBold">3-5</text>年</view>
-            <view class="t2Line">独家技术，全球唯一</view>
+          <view class="right">
+            <view class="firstLine mb8">
+              <view class="firstLeft">
+                <view class="f1line">国内唯一合法干细胞技术</view>
+              </view>
+            </view>
+
+            <view class="secondLine mb8">
+              <view>1、膝关节治疗（<text class="fontRed">促进软骨再生，减少手术风险</text>）</view>
+              <view>2、慢阻肺治疗（<text class="fontRed">修复受损肺组织，提升肺功能</text>）</view>
+              <view>3、心率衰竭治疗（<text class="fontRed">改善心衰症状</text>）</view>
+              <view>4、恶性肿瘤个性化DC疫苗治疗（<text class="fontRed">实体瘤、血液系统肿瘤，延长生存期</text>）</view>
+              <view>5、骨髓移植抗宿主的间充质干细胞治疗（<text class="fontRed">精准干预术后并发症</text>）</view>
+              <view>6、间充质肺疾病气道基底层干细胞治疗（<text class="fontRed">肺功能衰退，肺部纤维化</text>）</view>
+              <view>7、支气管扩张症的气道基底层干细胞治疗（<text class="fontRed">修复气道损伤，减少急性发病</text>）</view>
+              <view>8、遗传性视网膜营养不良的基因治疗（<text class="fontRed">基因突变相关眼病</text>）</view>
+            </view>
           </view>
         </view>
+
+        <view class="tLine mb8"><text style="color: #FFCC00;">⚠️</text> 唯一合法渠道：首次批准的八项干细胞技术仅限在海南博鳌乐城国际医疗旅游先行区内的”华西乐成医院“和”瑞金海南医院“使用</view>
+        <view class="tLine"><text style="color: #FFCC00;">⚠️</text> 非法渠道鉴别：除以上之外，未批准任何干细胞技术通过静脉注射等方式用于抗衰，修复全身，脑梗，帕金森或肿瘤治疗</view>
       </view>
     </view>
 

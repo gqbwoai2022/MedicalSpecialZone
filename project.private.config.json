@@ -6,18 +6,5 @@
     "bigPackageSizeSupport": true,
     "urlCheck": false
   },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/home/index",
-          "pathName": "pages/home/index",
-          "query": "scene=8be804203d454a0c9e427629da260aa6",
-          "launchMode": "default",
-          "scene": 1011
-        }
-      ]
-    }
-  },
   "libVersion": "2.32.3"
 }

@@ -4,88 +4,74 @@ page {
   flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 20px;
-  background-color: #f5f5f5;
+  background-color: rgba(156, 200, 245, 0.9);
 }
 
 .packageContainer {
-  height: calc(100% - 100px);
-  padding: 0 30rpx;
+  height: calc(100vh - 88px);
+  padding: 0 12px;
   box-sizing: border-box;
 
   /* 通用区块样式 */
   .section {
-    margin-top: 20rpx;
-    margin-bottom: 40rpx;
-
-    background: #fff;
-    padding: 20rpx;
-    border-radius: 20rpx;
+    margin-top: 14px;
+    background: rgb(209, 219, 233);
+    padding: 12px;
+    border-radius: 30px;
+    border: 1px solid #fff;
     box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
-    margin-bottom: 40rpx;
-  }
 
-  /* 价格文字 */
-  .price {
-    display: flex;
-    justify-content: center;
-    font-size: 54rpx;
-    font-weight: bold;
-    margin-bottom: 30rpx;
-  }
+    .cardTag {
+      width: fit-content;
+      font-weight: 600;
+      font-size: 18px;
+      color: #333;
+      border-radius: 50px;
+      padding: 4px 16px;
+      background: linear-gradient(to bottom, rgb(180, 225, 197), rgb(192, 214, 133));
+      margin-bottom: 12px;
+    }
 
-  /* 蓝色价格 */
-  .price.blue {
-    color: #1a73e8c2;
-    /* 蓝色 */
-  }
+    .cardPrice {
+      margin-left: 16px;
+      font-weight: 600;
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 14px;
+    }
 
-  /* 棕色价格 */
-  .price.brown {
-    color: #8d6e63;
-    /* 棕色 */
-  }
+    .cardTitle {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 8px;
+      margin-left: 16px;
+    }
 
-  /* 购买按钮通用样式 */
-  .buy-btn {
-    width: 100%;
-    height: 80rpx;
-    line-height: 80rpx;
-    border-radius: 40rpx;
-    color: #fff;
-    font-size: 32rpx;
-    margin-bottom: 30rpx;
-    border: none;
-  }
+    .cardText {
+      font-size: 16px;
+      margin-left: 16px;
+      margin-bottom: 4px;
+    }
 
-  /* 蓝色按钮 */
-  .buy-btn.blue {
-    background-color: #1a73e8ea;
-  }
+    .mb16 {
+      margin-bottom: 12px;
+    }
 
-  /* 浅橙色按钮 */
-  .buy-btn.orange {
-    background-color: #ffb74d;
-  }
+    .cardWarn {
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: 16px;
+    }
 
-  /* 描述文字 */
-  .description {
-    color: #666;
-    font-size: 32rpx;
-    line-height: 1.8;
-    padding-left: 10rpx;
-    position: relative;
-  }
-
-  /* 绿色系样式 */
-  .price.green {
-    color: #2e7d32;
-    /* 墨绿色 */
-  }
-
-  .buy-btn.green {
-    background-color: #43a047;
-    /* 医疗主题绿色 */
-    box-shadow: 0 2px 4px rgba(67, 160, 71, 0.3);
-    /* 添加同色系阴影 */
+    .buy-btn {
+      width: 95%;
+      margin-top: 12px;
+      padding: 4px 0;
+      background: #07C160;
+      color: #fff;
+      text-align: center;
+      border-radius: 24px;
+      font-size: 16px;
+    }
   }
 }

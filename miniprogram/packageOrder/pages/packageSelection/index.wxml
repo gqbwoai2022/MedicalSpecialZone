@@ -3,67 +3,29 @@
 <scroll-view scroll-y class="packageContainer">
   <!-- 上半部分（1998套餐） -->
   <view class="section">
-    <view class="price blue">￥1998</view>
-    <button class="buy-btn blue" bindtap="handleBuy" data-price="1998" data-service="1">
-      黑卡会员尊享
-    </button>
-    <view class="description">
-      三亚301、海南瑞金及先行区等30家医院直通资格，包括：
-    </view>
-    <view class="description">
-      1.体检，门诊问诊挂号，住院治疗，检验检查，手术术后康复及转诊等业务对接服务
-    </view>
-    <view class="description">
-      2.合作医院的陪诊，绿色就医通道及vip待遇
-    </view>
-    <view class="description">
-      3.所有合作医院专家的面诊及远程诊疗服务
-    </view>
-  </view>
+    <view class="cardTag">会员费用</view>
+    <view class="cardPrice">15,800元/位/年</view>
 
-  <!-- 下半部分（3998套餐） -->
-  <view class="section">
-    <view class="price brown">￥3998</view>
-    <button class="buy-btn orange" bindtap="handleBuy" data-price="3998" data-service="2">
-      金卡会员尊享
-    </button>
-    <view class="description">
-      合作院士等专家团队直通资格，包括：
-    </view>
-    <view class="description">
-      1.体检，门诊问诊挂号，住院治疗，检验检查，手术术后康复及转诊等业务对接服务
-    </view>
-    <view class="description">
-      2.合作医院的陪诊，绿色就医通道和vip待遇
-    </view>
-    <view class="description">
-      3.国内唯一使用权的国际化同步药品，医疗器械及先进医疗技术
-    </view>
-    <view class="description">
-      4.所有合作院士的面诊或远程诊疗对接服务
-    </view>
-    <view class="description">
-      5.医疗费用优惠
-    </view>
-  </view>
+    <view class="cardTag">会员权益</view>
+    <view class="cardTitle">1、顶级医疗资源直通：</view>
+    <view class="cardText">· 直通三亚301医院，以及乐成华西医院、海南瑞金医院等30家顶尖医疗机构（三家，私立，国际）</view>
+    <view class="cardText">· 直通近30位院士专家（每年一次）及百余权威专家团队</view>
+    <view class="cardText mb16">· 直通460余种国内独家获批药械及国际先进医疗技术</view>
 
-  <!-- 新增的5998套餐模块 -->
-  <view class="section">
-    <view class="price green">￥5998</view>
-    <button class="buy-btn green" bindtap="handleBuy" data-price="5998" data-service="3">
-      黑金卡会员尊享
+    <view class="cardTitle">2、专属健康管理服务：</view>
+    <view class="cardText">· 建立个人健康数据档案</view>
+    <view class="cardText">· 配备专属医疗团队提供全程健康管理</view>
+    <view class="cardText">· 15分钟远程响应，24小时高效反馈，72小时定制专属诊疗/康养方案</view>
+    <view class="cardText mb16">· 会员专享医疗、康养、旅游等费用优惠</view>
+
+    <view class="cardTitle">3、全方位就医支持：</view>
+    <view class="cardText">· 涵盖：定制体检、门诊挂号、检验检查、住院治疗、手术康复、转诊协调</view>
+    <view class="cardText mb16">· 提供：专业陪诊、绿色就医通道、VIP专属待遇</view>
+
+    <view class="cardWarn">打造高效/便捷/稀缺医疗资源供应闭环，直达客户刚需的高端私人医疗一站式服务</view>
+
+    <button class="buy-btn" bindtap="handleBuy" data-price="1998" data-service="1">
+      确认付款
     </button>
-    <view class="description">
-      高端私人医疗服务，包括：
-    </view>
-    <view class="description">
-      1.机票、酒店、景点、餐饮等订制服务
-    </view>
-    <view class="description">
-      2.24小时金牌管家、金牌随行专业护理、金牌专属司机及专车服务
-    </view>
-    <view class="description">
-      3.根据客户需求，涵盖医疗、康养、旅游等业务的高端私人全订制服务
-    </view>
   </view>
 </scroll-view>

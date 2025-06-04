@@ -17,11 +17,6 @@
           <text class="placeholder">{{selectedTech || '请选择 >'}}</text>
         </view>
       </view>
-
-      <view class="attention">
-        <view class="title">注意事项：</view>
-        <view class="subTitle">以上各选项类别只可选择其中一个</view>
-      </view>
     </view>
 
     <view class="section">
@@ -31,14 +26,14 @@
         <!-- 就诊人姓名 -->
         <view class="input-item">
           <text>就诊人</text>
-          <input placeholder="请输入就诊人姓名" value="{{patientName}}" bindinput="handleInputChange" data-field="patientName" />
+          <input placeholder="请输入就诊人姓名" value="{{patientName}}" bindinput="handleInputChange" data-field="patientName" placeholder-class="input-placeholder" />
         </view>
 
         <!-- 期望就诊时间 -->
         <view class="input-item">
           <text>期望就诊时间</text>
           <picker mode="date" start="{{currentDate}}" value="{{visitTime}}" bindchange="handleTimeChange">
-            <view class="picker-placeholder">
+            <view class="{{visitTime ? 'picker-selected' : 'picker-placeholder'}}">
               {{visitTime || '请选择期望就诊时间'}}
             </view>
           </picker>
@@ -47,14 +42,14 @@
         <!-- 联系电话 -->
         <view class="input-item">
           <text>联系电话</text>
-          <input placeholder="请输入联系电话" type="number" value="{{phone}}" bindinput="handleInputChange" data-field="phone" maxlength="11" />
+          <input placeholder="请输入联系电话" type="number" value="{{phone}}" bindinput="handleInputChange" data-field="phone" maxlength="11" placeholder-class="input-placeholder" />
         </view>
       </view>
     </view>
 
     <view class="extra">
       <view class="title">其他要求</view>
-      <textarea placeholder="请输入其他服务要求" value="{{specialRequest}}" bindinput="handleSpecialRequestChange" class="textarea" auto-height="{{false}}" maxlength="200" show-count="{{true}}" />
+      <textarea placeholder="请输入其他服务要求" value="{{specialRequest}}" bindinput="handleSpecialRequestChange" class="textarea" auto-height="{{false}}" maxlength="200" show-count="{{true}}" placeholder-class="textarea-placeholder" />
     </view>
 
     <!-- 提交按钮 -->
