@@ -64,10 +64,10 @@ Page({
     isPlaying: false,   // 是否正在播放
     searchValue: '',
     swiperImages: [
-      "http://cos.yuanhhealth.com/lunbo1.jpg",
-      "http://cos.yuanhhealth.com/lunbo2.jpg",
-      "http://cos.yuanhhealth.com/lunbo3.jpg",
-      "http://cos.yuanhhealth.com/lunbo4.jpg"
+      "https://cos.yuanhhealth.com/lunbo1.jpg",
+      "https://cos.yuanhhealth.com/lunbo2.jpg",
+      "https://cos.yuanhhealth.com/lunbo3.jpg",
+      "https://cos.yuanhhealth.com/lunbo4.jpg"
     ]
   },
   async onLoad() {
@@ -216,7 +216,6 @@ Page({
       videoData: {
         url: 'https://cos.yuanhhealth.com/test.mp4',
         cover: '',
-        // cover: 'https://cos.yuanhhealth.com/video_cocer.png',
         loading: false,
       }
     });

@@ -1,6 +1,6 @@
 <view class="page-container">
 
-  <image src="http://cos.yuanhhealth.com/background.png" mode="aspectFill" class="background-image"></image>
+  <image src="https://cos.yuanhhealth.com/background.png" mode="aspectFill" class="background-image"></image>
 
   <view class="homeTitle">元合夕阳</view>
 
@@ -20,16 +20,16 @@
 
     <swiper class="swiperContainer" indicator-dots="{{true}}" autoplay="{{true}}" interval="4000" circular="{{true}}">
       <swiper-item>
-        <image data-index="1" lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo1.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo1.jpg" />
+        <image data-index="1" lazy-load class="swiperItemPic" src="https://cos.yuanhhealth.com/lunbo1.jpg" mode="aspectFill" bindtap="previewImage" data-src="https://cos.yuanhhealth.com/lunbo1.jpg" />
       </swiper-item>
       <swiper-item>
-        <image data-index="2" lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo2.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo2.jpg" />
+        <image data-index="2" lazy-load class="swiperItemPic" src="https://cos.yuanhhealth.com/lunbo2.jpg" mode="aspectFill" bindtap="previewImage" data-src="https://cos.yuanhhealth.com/lunbo2.jpg" />
       </swiper-item>
       <swiper-item>
-        <image data-index="3" lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo3.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo3.jpg" />
+        <image data-index="3" lazy-load class="swiperItemPic" src="https://cos.yuanhhealth.com/lunbo3.jpg" mode="aspectFill" bindtap="previewImage" data-src="https://cos.yuanhhealth.com/lunbo3.jpg" />
       </swiper-item>
       <swiper-item>
-        <image data-index="4" lazy-load class="swiperItemPic" src="http://cos.yuanhhealth.com/lunbo4.jpg" mode="aspectFill" bindtap="previewImage" data-src="http://cos.yuanhhealth.com/lunbo4.jpg" />
+        <image data-index="4" lazy-load class="swiperItemPic" src="https://cos.yuanhhealth.com/lunbo4.jpg" mode="aspectFill" bindtap="previewImage" data-src="https://cos.yuanhhealth.com/lunbo4.jpg" />
       </swiper-item>
     </swiper>
 
@@ -39,15 +39,15 @@
       </view>
       <view class="hospital-container">
         <view class="hospital-item">
-          <image lazy-load src="http://cos.yuanhhealth.com/hospital1.jpg" mode="aspectFill" class='hospital-pic' />
+          <image lazy-load src="https://cos.yuanhhealth.com/hospital1.jpg" mode="aspectFill" class='hospital-pic' />
           <view class="hospital-name">中国人民解放军总医院海南医院</view>
         </view>
         <view class="hospital-item">
-          <image lazy-load src="http://cos.yuanhhealth.com/hospital2.jpg" mode="aspectFill" class='hospital-pic' />
+          <image lazy-load src="https://cos.yuanhhealth.com/hospital2.jpg" mode="aspectFill" class='hospital-pic' />
           <view class="hospital-name">上海交通大学医学院附属瑞金医院</view>
         </view>
         <view class="hospital-item">
-          <image lazy-load src="http://cos.yuanhhealth.com/hospital3.jpg" mode="aspectFill" class='hospital-pic' />
+          <image lazy-load src="https://cos.yuanhhealth.com/hospital3.jpg" mode="aspectFill" class='hospital-pic' />
           <view class="hospital-name">四川大学华西乐城医院</view>
         </view>
       </view>
@@ -59,15 +59,15 @@
       </view>
       <view class="serviceContainer">
         <view class="serviceContainerItem">
-          <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/wangchen.jpg" mode="aspectFill" />
+          <image lazy-load class="expertImg" src="https://cos.yuanhhealth.com/wangchen.jpg" mode="aspectFill" />
           <view>王辰院士</view>
         </view>
         <view class="serviceContainerItem">
-          <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/ningguang.png" mode="aspectFill" />
+          <image lazy-load class="expertImg" src="https://cos.yuanhhealth.com/ningguang.png" mode="aspectFill" />
           <view>宁光院士</view>
         </view>
         <view class="serviceContainerItem">
-          <image lazy-load class="expertImg" src="http://cos.yuanhhealth.com/chenxiangmei.jpg" mode="aspectFill" />
+          <image lazy-load class="expertImg" src="https://cos.yuanhhealth.com/chenxiangmei.jpg" mode="aspectFill" />
           <view>陈香美院士</view>
         </view>
       </view>
@@ -80,7 +80,7 @@
       <view class="tech-card">
         <view class="flexContainer">
           <view class="left">
-            <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxueya.png" mode="aspectFill" />
+            <image lazy-load class="leftImg" src="https://cos.yuanhhealth.com/gaoxueya.png" mode="aspectFill" />
           </view>
           <view class="right">
             <view class="firstLine">
@@ -92,7 +92,7 @@
                 <view class="f3line">针对原发、继发性高血压群体</view>
               </view>
               <view class="firstRight">
-                <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+                <image lazy-load class="rightImg" src="https://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
               </view>
             </view>
 
@@ -110,7 +110,7 @@
       <view class="tech-card">
         <view class="flexContainer">
           <view class="left">
-            <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/gaoxuezhi.png" mode="aspectFill" />
+            <image lazy-load class="leftImg" src="https://cos.yuanhhealth.com/gaoxuezhi.png" mode="aspectFill" />
           </view>
           <view class="right">
             <view class="firstLine">
@@ -122,7 +122,7 @@
                 <view class="f3line">针对心梗，脑梗，脑卒中等群体</view>
               </view>
               <view class="firstRight">
-                <image lazy-load class="rightImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+                <image lazy-load class="rightImg" src="https://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
               </view>
             </view>
 
@@ -140,8 +140,8 @@
       <view class="tech-card">
         <view class="flexContainer">
           <view class="left">
-            <image lazy-load class="leftImg" src="http://cos.yuanhhealth.com/zhongliu.png" mode="aspectFill" />
-            <image lazy-load class="leftBottomImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+            <image lazy-load class="leftImg" src="https://cos.yuanhhealth.com/zhongliu.png" mode="aspectFill" />
+            <image lazy-load class="leftBottomImg" src="https://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
           </view>
           <view class="right">
             <view class="firstLine">
@@ -167,8 +167,8 @@
       <view class="tech-card">
         <view class="flexContainer">
           <view class="left">
-            <image lazy-load class="leftImg mb28" src="http://cos.yuanhhealth.com/gaoxuetang.png" mode="aspectFill" />
-            <image lazy-load class="leftBottomImg" src="http://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
+            <image lazy-load class="leftImg mb28" src="https://cos.yuanhhealth.com/gaoxuetang.png" mode="aspectFill" />
+            <image lazy-load class="leftBottomImg" src="https://cos.yuanhhealth.com/bazi.png" mode="aspectFill" />
           </view>
 
           <view class="right">

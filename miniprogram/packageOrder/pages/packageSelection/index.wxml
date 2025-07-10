@@ -15,14 +15,15 @@
     <view class="cardTitle">2、专属健康管理服务：</view>
     <view class="cardText">· 建立个人健康数据档案</view>
     <view class="cardText">· 配备专属医疗团队提供全程健康管理</view>
-    <view class="cardText">· 15分钟远程响应，24小时高效反馈，72小时定制专属诊疗/康养方案</view>
+    <view class="cardText">· 一对一专属客服，15分钟远程响应，24小时高效反馈，72小时定制专属诊疗/康养方案</view>
     <view class="cardText mb16">· 会员专享医疗、康养、旅游等费用优惠</view>
 
     <view class="cardTitle">3、全方位就医支持：</view>
     <view class="cardText">· 涵盖：定制体检、门诊挂号、检验检查、住院治疗、手术康复、转诊协调</view>
     <view class="cardText mb16">· 提供：专业陪诊、绿色就医通道、VIP专属待遇</view>
 
-    <view class="cardWarn">打造高效/便捷/稀缺医疗资源供应闭环，直达客户刚需的高端私人医疗一站式服务</view>
+    <view class="cardWarn">打造高效/便捷/稀缺医疗资源供应闭环</view>
+    <view class="cardWarn">直达客户刚需的高端私人医疗一站式服务</view>
 
     <button class="buy-btn" bindtap="handleBuy" data-price="1998" data-service="1">
       确认付款
