@@ -68,4 +68,11 @@
       <view class="modal-close" bindtap="closeModal">取消</view>
     </view>
   </view>
+
+  <view wx:if="{{needAuth}}" class="auth-container">
+    <button class="auth-button" bindtap="handleManualAuth" loading="{{authLoading}}" hover-class="none" open-type="getUserInfo">
+      微信一键登录
+    </button>
+    <view class="auth-tip">请授权获取用户信息以继续</view>
+  </view>
 </scroll-view>

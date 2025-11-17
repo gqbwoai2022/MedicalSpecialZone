@@ -73,27 +73,20 @@ Page({
   async onLoad() {
     wx.removeStorage({ key: 'userInfo' });
     wx.clearStorageSync();
-    await this.loginFlowController();
+    // await this.loginFlowController();
     this.fetchVideoData();
   },
 
   // 核心登录控制器
   async loginFlowController() {
-    console.log('---加载页needAuth');
-    console.log(this.data.needAuth);
-    console.log('---jiazai this.checkAuthValid()');
-    console.log(this.checkAuthValid())
     if (this.checkAuthValid()) return;
 
     try {
       await this.executeSilentLogin();
       if (this.checkAuthValid()) return;
     } catch (silentError) {
-      console.log('静默登录失败:', silentError);
     }
     if (!this.data.needAuth) {
-      console.log('---1jiazaizhong needAuth');
-      console.log(this.data.needAuth);
       this.setData({ needAuth: true });
     }
   },
@@ -120,8 +113,6 @@ Page({
       await this.callLoginAPI(code, getApp().globalData.sceneParams);
 
       // 关键判断：静默登录不包含用户信息
-      console.log('----executeSilentLogin userInfo');
-      console.log(wx.getStorageSync('userInfo'))
       if (!wx.getStorageSync('userInfo')) {
         this.setData({ needAuth: true });
         throw new Error('需要用户授权');
@@ -148,7 +139,6 @@ Page({
             wx.setStorageSync('token', res.data.data)
           }
         } catch (e) {
-          console.error('接口调用失败:', e)
           if (e.status === 401) { // token失效
             wx.removeStorageSync('token');
             throw e;
@@ -222,7 +212,6 @@ Page({
   },
 
   onVideoError(e: any) {
-    console.error('播放错误:', e.detail.errMsg);
     wx.showToast({ title: '播放失败，请重试', icon: 'none' });
   },
 

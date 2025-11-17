@@ -35,7 +35,7 @@ const wxLogin = () => {
 const getUserProfile = () => {
   return new Promise((resolve, reject) => {
     wx.getUserProfile({
-      desc: '用于完善会员信息',
+      desc: '用于展示您的专属身份标识',
       success: (res: any) => resolve(res.userInfo),
       fail: (err: any) => reject(err)
     })

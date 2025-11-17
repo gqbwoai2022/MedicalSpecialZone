@@ -9,8 +9,8 @@ interface ApiResponse<T = any> {
 
 Page({
   data: {
+    needAuth: true, // 是否需要显示授权按钮
     isLoggedIn: false,
-    userInfo: null,
     // 当前选中的类型（hospital/expert/tech）
     selectedType: '',
     // 已选的值
@@ -76,6 +76,11 @@ Page({
     phone: '',             // 联系电话
     currentDate: new Date().toISOString().split('T')[0], // 默认今天，格式：YYYY-MM-DD
     specialRequest: '',
+    token: '',
+  },
+
+  async onLoad() {
+    await this.checkLogin();
   },
 
   // 点击选项项
@@ -198,7 +203,7 @@ Page({
       if (token && storedUser) {
         this.setData({
           isLoggedIn: true,
-          userInfo: storedUser
+          needAuth: false,
         });
         return true;
       }
@@ -206,31 +211,62 @@ Page({
       await silentLogin();
 
       // 6. 需要手动授权
-      await this.handleManualAuth();
+      this.setData({ needAuth: true });
       return true;
     } catch (error) {
-      console.error('登录检查失败:', error);
       return false;
     }
   },
 
   // 手动授权处理
   async handleManualAuth() {
+    wx.showLoading({ title: '登录中' });
     try {
-      const { userInfo } = await fullLogin();
+      const { code, userInfo } = await fullLogin();
       wx.setStorageSync('userInfo', userInfo);
+      await this.callLoginAPI(code, getApp().globalData.sceneParams);
+      wx.showLoading({ title: '登录成功' });
       this.setData({
         isLoggedIn: true,
-        userInfo: userInfo
+        needAuth: false
       });
     } catch (error) {
       wx.showToast({ title: '授权失败，请重试', icon: 'none' });
       throw error;
+    } finally {
+      wx.hideLoading();
+
     }
+  },
+
+  // 统一调用登录接口
+  callLoginAPI(code: string, sceneParams: any) {
+    wx.request({
+      url: 'https://yuanhhealth.com/api/user/login',
+      method: 'POST',
+      data: {
+        code,
+        scene: sceneParams
+      },
+      success: (res: any) => {
+        try {
+          if (res.data.code === 1) {
+            this.setData({ token: res.data.data });
+            wx.setStorageSync('token', res.data.data)
+          }
+        } catch (e) {
+          if (e.status === 401) { // token失效
+            wx.removeStorageSync('token');
+            throw e;
+          }
+        }
+      }
+    })
   },
 
   // 提交数据到后端
   async submitDataToBackend() {
+    console.log(this.data.token);
     const {
       selectedHospital,
       selectedExpert,
@@ -256,7 +292,7 @@ Page({
       data: params,
       header: {
         'Content-Type': 'application/json',
-        'Authorization': wx.getStorageSync('token')
+        'Authorization': this.data.token || wx.getStorageSync('token')
       },
       success: (res: WechatMiniprogram.RequestSuccessCallbackResult<ApiResponse<any>>) => {
         try {

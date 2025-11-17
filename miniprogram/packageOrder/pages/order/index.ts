@@ -93,7 +93,7 @@ Page({
             });
           }
         } catch (e) {
-          console.error('接口调用失败:', e);
+          return;
         }
       }
     });

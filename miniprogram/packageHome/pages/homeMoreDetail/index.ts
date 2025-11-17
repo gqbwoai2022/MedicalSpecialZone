@@ -581,7 +581,6 @@ Page({
       current: src,
       urls: [src],
       fail: (err) => {
-        console.error('图片预览失败:', err)
         wx.showToast({ title: '预览失败，请稍后重试', icon: 'none' })
       }
     })

@@ -70,7 +70,6 @@ Page({
 
       wx.showToast({ title: '登录成功', icon: 'success' });
     } catch (error) {
-      console.error('登录失败:', error);
       wx.showToast({
         title: error.message.includes('deny') ? '您取消了授权' : '登录失败',
         icon: 'none'
